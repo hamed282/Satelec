@@ -1,0 +1,37 @@
+{% load static %}
+
+<!-- Section Testimonials -->
+<div class="c-section -bg-green section-testimonials-1">
+    <div class="c-container -size-full">
+        <div class="row -gutter-none">
+            <div class="col-lg-6 section-testimonials-1-photo" data-cursor-bg-img="{{ testimonial.image.url }}"></div>
+            <div class="col-lg-6 section-testimonials-1-content">
+                <!-- Heading -->
+                <h6 class="u-text-sup u-color-white">{{ testimonial.title }}</h6>
+                <h2 class="u-text-title u-color-white">{{ testimonial.header }}</h2>
+                <!-- Heading End -->
+
+                <!-- Testimonials -->
+                <div class="c-testimonials-2 -align-left">
+                    <div class="owl-carousel -dots-white -dots-left -js-carousel" data-owl-items="1" data-owl-autoplay="true" data-owl-rewind="true">
+                        {% for item in item_testimonial %}
+                            <!-- Testimonials Item -->
+                            <div class="c-testimonials-2-item">
+                                <div class="c-testimonials-2-message">
+                                    <p>{{ item.description }}</p>
+                                </div>
+                                <div class="c-testimonials-2-title">
+                                    <h5>{{ item.full_name }}</h5>
+                                    <h6>{{ item.role }}</h6>
+                                </div>
+                            </div>
+                            <!-- Testimonials Item End -->
+                        {% endfor %}
+                    </div>
+                </div>
+                <!-- Testimonials End -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Section Testimonials End -->

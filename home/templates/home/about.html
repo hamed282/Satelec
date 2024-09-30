@@ -1,0 +1,34 @@
+{% load static %}
+
+<!-- Section About -->
+<div class="c-section -space-large">
+    <div class="c-container">
+        <div class="row -gutter-medium">
+            <div class="col-lg-6">
+                <!-- Heading -->
+                <h6 class="u-text-sup">ABOUT US</h6>
+                <h1 class="u-text-hero">{{ about.title }}</h1>
+                <p class="u-color-grey">{{ about.subtitle }}</p>
+                <p><a href="{% url 'home:aboutus' %}" class="c-button-1 -color-green-outline -hover-green-default -size-small -corner-circle">READ MORE <i class="c-button-1-icon -right ion-chevron-right"></i></a></p>
+                <!-- Heading End -->
+            </div>
+            <div class="col-lg-6">
+                <!-- Gallery -->
+                <div class="c-gallery-1 -corner-rounded -hover-1 -js-popup -js-isotope">
+                    <div class="c-gallery-1-inner row -gutter-small">
+                        <div class="c-gallery-1-size col-md-4"></div>
+
+                        {% for img in galleries %}
+                        <div class="c-gallery-1-item col-md-4">
+                            <a class="c-gallery-1-link" href="{{ img.image.url }}" title="Our Office">
+                        <img class="c-gallery-1-image" src="{{ img.image.url }}" alt="{{ img.alt }}"></a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <!-- Gallery End -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Section About End -->

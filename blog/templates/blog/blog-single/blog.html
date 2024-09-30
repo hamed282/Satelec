@@ -1,0 +1,168 @@
+{% load static %}
+
+<!-- Section Title -->
+<div class="c-section -space-large">
+    <div class="c-container">
+        <!-- Heading -->
+        <p><span class="c-label-1 -style-outline -color-green -corner-circle">{{ blog.category.category }}</span></p>
+        <h1 class="u-text-title">{{ blog.title }}</h1>
+        <p class="u-text-lead">{{ blog.description }}</p>
+        <!-- Heading End -->
+    </div>
+</div>
+<!-- Section Title End -->
+
+<!-- Section Post -->
+<div class="c-section -bg-grey">
+    <div class="c-container -overlap-top-large">
+        <article class="page-post-3">
+            <div class="row">
+                <div class="col-lg-8">
+                    <!-- Post Body -->
+                    <div class="page-post-3-body">
+                        <!-- Post Info -->
+                        <div class="page-post-3-info">
+                            <div class="page-post-3-author">
+                                <a class="page-post-3-author-photo" href="#"><img src="assets/img/user-1-square.jpg" alt="Author Name"></a>
+                                <a class="page-post-3-author-name" href="#">{{ blog.author }}</a>
+                            </div>
+                            <div class="page-post-3-meta">
+                                <ul>
+                                    <li><span class="page-post-3-meta-icon ion-ios-bookmarks-outline"></span> {{ blog.updated }}</li>
+                                    <li><span class="page-post-3-meta-icon ion-ios-chatbubble-outline"></span> <a href="#">24 Comments</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Post Info End -->
+
+                        <!-- Post Content -->
+                        <div class="page-post-3-content">
+                            {{ blog.body }}
+                        </div>
+                        <!-- Post Content End -->
+
+                        <!-- Post Comments -->
+                        <div class="page-post-3-comments">
+                            <h4 class="page-post-3-title">4 Comments</h4>
+                            <div class="c-comments-1">
+                                <ul class="c-comments-1-list">
+                                    {% for comment in comments %}
+                                        <li class="c-comments-1-item">
+                                            <div class="c-comments-1-info">
+                                                <div class="c-comments-1-user">{{ comment.user }}</div>
+                                                <div class="c-comments-1-date">{{ comment.created }}</div>
+                                                <div class="c-comments-1-message">{{ comment.body }}</div>
+                                                <div class="c-comments-1-reply"><a href="#">REPLY</a></div>
+
+                                                <!-- نمایش پاسخ‌ها -->
+                                                <ul class="c-comments-1-reply-list">
+                                                    {% for reply in replies %}
+                                                        {% if reply.reply_id == comment.id %}
+                                                            <li class="c-comments-1-reply-item">
+                                                                <div class="c-comments-1-info">
+                                                                    <div class="c-comments-1-user">{{ reply.user }}</div>
+                                                                    <div class="c-comments-1-date">{{ reply.created }}</div>
+                                                                    <div class="c-comments-1-message">{{ reply.body }}</div>
+                                                                </div>
+                                                            </li>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Post Comments End -->
+
+                        <!-- Post Comments Form -->
+                        <div class="page-post-3-comments-form">
+                            <h4 class="page-post-3-title">Leave a reply</h4>
+                            <form class="c-form">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="c-form-group">
+                                            <input class="c-form-input" type="text" name="comment-name" placeholder="Enter Your Name" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="c-form-group">
+                                            <input class="c-form-input" type="email" name="comment-email" placeholder="Enter Your Email" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="c-form-group">
+                                            <input class="c-form-input" type="url" name="comment-website" placeholder="Enter Your Website" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="c-form-group">
+                                            <textarea class="c-form-textarea" name="comment-message" rows="3" placeholder="Enter Your Message" required></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="c-button-1 -color-green-outline -hover-green-default -size-small -corner-circle" type="submit" name="button">SEND COMMENT</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- Post Comments Form End -->
+                    </div>
+                    <!-- Post Body End -->
+                </div>
+                <div class="col-lg-4">
+                    <!-- Post Sidebar -->
+                    <div class="page-post-3-sidebar">
+                        <div class="c-sidebar-1">
+                            <!-- Sidebar Search -->
+                            <div class="c-sidebar-1-widget">
+                                <div class="c-sidebar-1-search">
+                                    <form class="c-sidebar-1-search-form">
+                                        <input class="c-sidebar-1-search-field" type="text" placeholder="Search for ...">
+                                        <button class="c-sidebar-1-search-button" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- Sidebar Search End -->
+
+                            <!-- Sidebar Categories -->
+                            <div class="c-sidebar-1-widget">
+                                <nav class="c-sidebar-1-nav">
+                                    <h3 class="c-sidebar-1-widget-title">Categories</h3>
+                                    <ul>
+                                        {% for category in categories %}
+                                            <li><a href="{% url 'blog:blog_category' category.slug %}">{{ category.category }}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </nav>
+                            </div>
+                            <!-- Sidebar Categories End -->
+
+                            <!-- Sidebar Recent Posts -->
+                            <div class="c-sidebar-1-widget">
+                                <div class="c-sidebar-1-recentposts">
+                                    <h3 class="c-sidebar-1-widget-title">Recent Posts</h3>
+                                    <ul>
+                                        {% for blog in blogs %}
+                                            <li>
+                                                <h5><a href="#">{{ blog.title }}</a></h5>
+                                                <p>{{ blog.description }}</p>
+                                                <h6><a href="#">{{ blog.author }}</a> {{ blog.updated }}</h6>
+                                            </li>
+                                        {% endfor %}
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Sidebar Recent Posts End -->
+
+                        </div>
+                    </div>
+                    <!-- Post Sidebar End -->
+                </div>
+            </div>
+        </article>
+    </div>
+</div>
+<!-- Section Post End -->

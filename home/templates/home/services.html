@@ -1,0 +1,38 @@
+{% load static %}
+
+<!-- Section Services -->
+<div class="c-section -space-large -bg-blue-light">
+    <div class="c-container">
+        <!-- Heading -->
+        <h6 class="u-text-sup">OUR SERVICES</h6>
+        <h2 class="u-text-title">{{ services.title }}</h2>
+        <p class="u-text-lead">{{ services.subtitle }}</p>
+        <!-- Heading End -->
+
+        <!-- Space -->
+        <div class="u-space u-space-120@sm"></div>
+        <!-- Space End -->
+
+        <!-- Services -->
+        <div class="row -gutter-medium">
+            {% for item in item_service %}
+            <div class="col-md-6 col-lg-4">
+                <!-- Summary -->
+                <div class="c-summary-1 -icon-top">
+                    <div class="c-summary-1-icon">
+                        <span class="{{ item.icon_class }}"></span>
+                    </div>
+                    <div class="c-summary-1-info">
+                        <h5 class="c-summary-1-title">{{ item.title }}</h5>
+                        <p class="c-summary-1-description u-color-grey">{{ item.description}}</p>
+                        <p class="c-summary-1-link"><a href="{{ item.link }}" class="c-link-1">Read more <span class="c-link-1-icon -right ion-android-arrow-forward"></span></a></p>
+                    </div>
+                </div>
+                <!-- Summary End -->
+            </div>
+            {% endfor %}
+        </div>
+        <!-- Services End -->
+    </div>
+</div>
+<!-- Section Services End -->

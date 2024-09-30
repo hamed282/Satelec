@@ -1,0 +1,98 @@
+{% load static %}
+
+<div class="site-wrapper">
+    <!-- Header -->
+    <header class="c-header-1 -bg-dark -js-header">
+        <div class="c-header-1-spacer"></div>
+        <div class="c-header-1-container">
+            <div class="c-header-1-inner">
+                <div class="c-container">
+                    <div class="c-header-1-middle">
+                        <div class="c-header-1-logo">
+                            <a href="{% url 'home:home' %}"><img src="{{ logo.logo_header.url }}" alt="{{ logo.logo_header_alt }}"></a>
+                        </div>
+                        <nav class="c-header-1-nav">
+                        <ul>
+                            <li class="sub"><a href="{% url 'home:home' %}">Home</a>
+                            </li>
+                            <li class="sub"><a href="#">Who we are</a>
+                                <ul>
+                                    <li><a href="{% url 'home:aboutus' %}">About Us</a>
+                                    </li>
+                                    <li><a href="{% url 'home:mission_vision' %}">Mission & Vision</a>
+                                    </li>
+                                    <li><a href="{% url 'home:commitment' %}">Commitment to quality</a>
+                                    </li>
+                                    <li><a href="{% url 'home:costumer_centric_focus' %}">Costumer Centric Focus</a>
+                                    </li>
+                                    <li><a href="{% url 'home:sustainability_initiatives' %}">Sustainability initiatives</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="sub"><a href="{% url 'home:what_we_do' %}">What we do</a>
+                                <ul>
+                                    <li><a href="{% url 'home:electrical_equipments' %}">Electrical Equipment</a>
+                                    </li>
+                                    <li><a href="{% url 'home:solar_systems' %}">Solar Systems</a>
+                                    </li>
+                                    <li><a href="{% url 'home:heavy_machineries' %}">Heavy Machineries</a>
+                                    </li>
+                                    <li><a href="{% url 'home:commodities_trading' %}">Commodities Trading</a>
+                                    </li>
+                                    <li><a href="{% url 'home:healthcare_products' %}">Healthcare Products</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="sub"><a href="#">Our partners</a>
+                                <ul>
+                                    <li><a href="#">Trina Solar</a>
+                                    </li>
+                                    <li><a href="#">Kaco Energy</a>
+                                    </li>
+                                    <li><a href="#">Healfit</a>
+                                    </li>
+                                    <li><a href="#">Palmore International</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="sub"><a href="{% url 'blog:blog' %}">Blog</a>
+                                <ul>
+                                    <li><a href="#">Heavy machineries</a>
+                                    </li>
+                                    <li><a href="#">EPC</a>
+                                    </li>
+                                    <li><a href="#">Petrochemicals</a>
+                                    </li>
+                                    <li><a href="#">Healthcare</a>
+                                    </li>
+                                    <li><a href="#">Electrical</a>
+                                    </li>
+                                    <li><a href="#">Solar Power Systems</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="mega"><a href="{% url 'home:contactus' %}">Contact us</a>
+                            </li>
+                        </ul>
+                    </nav>
+                        <div class="c-header-1-icon-toggle">
+                            <span class="ion-navicon-round"></span>
+                        </div>
+                        <div class="c-header-1-icon-search">
+                            <span class="ion-ios-search-strong"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="c-header-1-searcher">
+                    <div class="c-container">
+                        <form class="c-header-1-searcher-form">
+                            <input type="text" class="c-header-1-searcher-field" placeholder="Start Typing &amp; Press Enter ...">
+                            <button type="button" class="c-header-1-searcher-close"><span class="ion-ios-close-empty"></span></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+</div>

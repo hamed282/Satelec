@@ -1,0 +1,56 @@
+{% load static %}
+
+<!-- Section Blog -->
+<div class="c-section -space-large section-blog-1">
+    <div class="c-container">
+        <!-- Heading -->
+        <h6 class="u-text-sup">CORPORATE BLOG</h6>
+        <h2 class="u-text-title">{{ blog.title }}</h2>
+        <p class="u-text-lead">{{ blog.description }}</p>
+        <p><a href="{% url 'blog:blog' %}" class="c-link-1">visit our blog <span class="c-link-1-icon -right ion-android-arrow-forward"></span></a></p>
+        <!-- Heading End -->
+
+        <!-- Space -->
+        <div class="u-space u-space-120@sm"></div>
+        <!-- Space End -->
+
+        <!-- Blog -->
+        <div class="c-blog-1">
+            <!-- Blog Inner -->
+            <div class="c-blog-1-inner">
+                <div class="owl-carousel -js-carousel" data-owl-responsive='{"0":{"items":1},"768":{"items":2},"992":{"items":3}}'>
+
+                    {% for blog in blogs %}
+                        <!-- Blog Item -->
+                        <article class="c-blog-1-item">
+                            <div class="c-blog-1-item-inner">
+                                <div class="c-blog-1-media">
+                                    <div class="c-blog-1-media-photo">
+                                        <a class="c-blog-1-media-link" href="{% url 'blog:blog_item' blog.slug %}"><img class="c-blog-1-media-image" src="{{ blog.cover.url }}" alt="Post Title"></a>
+                                    </div>
+                                </div>
+                                <div class="c-blog-1-info">
+                                    <h5 class="c-blog-1-info-category"><a href="{% url 'blog:blog_category' blog.category.slug %}">{{ blog.category.category }}</a></h5>
+                                    <h3 class="c-blog-1-info-title"><a href="{% url 'blog:blog_item' blog.slug %}">{{ blog.title }}</a></h3>
+                                    <ul class="c-blog-1-info-meta">
+                                        <li class="c-blog-1-info-meta-item">{{ blog.created }}</li>
+                                        <li class="c-blog-1-info-meta-item">0 Comments</li>
+                                        <li class="c-blog-1-info-meta-item">By {{ blog.author }}</li>
+                                    </ul>
+                                    <div class="c-blog-1-info-summary">
+                                        <p>{{ blog.description }}</p>
+                                    </div>
+                                    <div class="c-blog-1-info-link"><a href="{% url 'blog:blog_item' blog.slug %}" class="c-link-1">Read more <span class="c-link-1-icon -right ion-android-arrow-forward"></span></a></div>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Blog Item End -->
+                    {% endfor %}
+                </div>
+            </div>
+            <!-- Blog Inner End -->
+        </div>
+        <!-- Blog End -->
+    </div>
+</div>
+<!-- Section Blog End -->

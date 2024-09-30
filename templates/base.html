@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+
+	<!-- Basic Page Head -->
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>{% block title %} {% endblock %}</title>
+	<meta name="description" content="Multi-Purpose HTML Template">
+	<meta name="author" content="Loco Theme - locotheme.com">
+	<meta name="keywords" content="personal, creative, portfolio, freelance, agency, craft, minimal, unique, work, projects, simple, clean, modern, masonry, blog">
+	<meta name="robots" content="noindex, nofollow">
+	<!-- Mobile Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Favicons -->
+	<link rel="icon" type="image/png" href="{% static 'assets/img/favicon-16x16.png' %}" sizes="16x16">
+	<link rel="icon" type="image/png" href="{% static 'assets/img/favicon-32x32.png' %}" sizes="32x32">
+	<link rel="shortcut icon" href="{% static 'assets/img/favicon.ico' %}">
+	<link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/img/apple-touch-icon.png' %}">
+
+	<!-- Vendors -->
+	<link rel="stylesheet" href="{% static 'assets/vendors/bootstrap/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/vendors/owl-carousel/css/owl.carousel.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/vendors/magnific-popup/css/magnific-popup.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/vendors/font-awesome/css/font-awesome.min.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/vendors/ion-icons/css/ionicons.min.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/vendors/animate.min.css' %}">
+
+	<!-- Css -->
+	<link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/css/theme.default.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/css/custom.css' %}">
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+
+	<!--[if lt IE 9]>
+		<script src="{% static 'assets/vendors/html5shiv.min.js' %}"></script>
+	<![endif]-->
+
+</head>
+<body>
+<!--	&lt;!&ndash; Loading &ndash;&gt;-->
+<!--	<div class="c-loading-1 -js-loading">-->
+<!--		<img class="c-loading-1-icon" src="{% static 'assets/img/loading.gif' %}" alt="Loading">-->
+<!--	</div>-->
+<!--	&lt;!&ndash; Loading End &ndash;&gt;-->
+
+	<!-- Back Top -->
+	<div class="c-backtop-1 -js-backtop">
+		<i class="c-backtop-1-icon fa fa-angle-up"></i>
+	</div>
+	<!-- Back Top End -->
+
+    <div class="site-wrapper">
+
+        {% block content %}  {% endblock %}
+
+    </div><!-- end wrapper -->
+
+
+	<!-- Vendors -->
+	<script src="{% static 'assets/vendors/jquery.min.js' %}"></script>
+	<script src="{% static 'assets/vendors/tether.min.js' %}"></script>
+	<script src="{% static 'assets/vendors/bootstrap/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'assets/vendors/owl-carousel/js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'assets/vendors/magnific-popup/js/magnific-popup.min.js' %}"></script>
+	<script src="{% static 'assets/vendors/waypoints/waypoints.min.js' %}"></script>
+	<script src="{% static 'assets/vendors/imagesloaded.pkgd.min.js' %}"></script>
+	<script src="{% static 'assets/vendors/isotope.pkgd.min.js' %}"></script>
+	<script src="{% static 'assets/vendors/countdown.min.js' %}"></script>
+	<script src="{% static 'assets/vendors/smoothscroll.js' %}"></script>
+	<script src="{% static 'assets/vendors/sweet-scroll.min.js' %}"></script>
+	<script src="{% static 'assets/vendors/stellar.min.js' %}"></script>
+	<script src="{% static 'assets/vendors/fitvids.js' %}"></script>
+	<script src="{% static 'assets/vendors/countto.js' %}"></script>
+	<script src="{% static 'assets/vendors/chart.min.js' %}"></script>
+
+	<!-- Google Map -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAI6l3aScGNBNG_7-lHZgnU9691uBCid8I"></script>
+
+	<!-- Scripts -->
+	<script src="{% static 'assets/js/main.js' %}"></script>
+	<script src="{% static 'assets/js/theme.default.js' %}"></script>
+	<script src="{% static 'assets/js/custom.js' %}"></script>
+
+</body>

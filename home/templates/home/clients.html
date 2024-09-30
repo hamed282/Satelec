@@ -1,0 +1,35 @@
+{% load static %}
+
+<!-- Section Clients -->
+<div class="c-section -space-large section-clients-1">
+    <div class="c-container">
+        <!-- Heading -->
+        <h6 class="u-text-sup u-text-center">CLIENTS</h6>
+        <h2 class="u-text-title u-text-center">{{ client.title }}</h2>
+        <p class="u-text-lead u-text-center">{{ client.description }}</p>
+        <!-- Heading End -->
+
+        <!-- Space -->
+        <div class="u-space u-space-120@sm"></div>
+        <!-- Space End -->
+
+        <!-- Logos -->
+        <div class="c-logos-2 -hover-1">
+            <!-- Logos Inner -->
+            <div class="c-logos-2-inner row -gutter-small">
+                {% for item in item_client %}
+                    <!-- Logos Item -->
+                    <div class="c-logos-2-item col-sm-6 col-md-4 col-lg-3">
+                        <div class="c-logos-2-item-inner">
+                            <a href="{{ item.link }}" class="c-logos-2-link"><img class="c-logos-2-image" src="{{ item.logo.url }}" alt="{{ item.logo_alt }}"></a>
+                        </div>
+                    </div>
+                    <!-- Logos Item End -->
+                {% endfor %}
+            </div>
+            <!-- Logos Inner End -->
+        </div>
+        <!-- Logos End -->
+    </div>
+</div>
+<!-- Section Clients End -->

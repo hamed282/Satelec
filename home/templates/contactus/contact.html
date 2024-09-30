@@ -1,0 +1,138 @@
+{% load static %}
+
+<!-- Section Contact -->
+<div class="c-section -bg-blue-light">
+    <div class="c-container -overlap-top-large">
+        <div class="page-contact-1">
+            <div class="row -gutter-none">
+                <div class="col-12">
+                    <div class="page-contact-1-map">
+                        <!-- Map -->
+                        <div class="c-map-1 -js-map" data-cursor-map-lat="51.5237581" data-cursor-map-lng="-0.1584312" data-cursor-map-style="style_light" data-cursor-map-zoom="17" data-cursor-map-marker="assets/img/icon-map-marker-dark.png" data-cursor-map-hide-controls="true"></div>
+                        <!-- Map End -->
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="page-contact-1-info">
+                        <!-- Contact Title -->
+                        <h2 class="page-contact-1-title">Contact Information</h2>
+                        <!-- Contact Title End -->
+
+                        <!-- Divider -->
+                        <div class="c-divider-1 -style-diagonal -size-large"></div>
+                        <!-- Divider End -->
+
+                        <!-- Space -->
+                        <div class="u-space"></div>
+                        <!-- Space End -->
+
+                        <!-- Summary -->
+                        <div class="c-summary-1 -icon-left">
+                            <div class="c-summary-1-icon">
+                                <span class="ion-ios-location-outline"></span>
+                            </div>
+                            <div class="c-summary-1-info">
+                                <h5 class="c-summary-1-title">Address</h5>
+                                <p class="c-summary-1-description u-color-grey">Cursor Avenue, Brooklyn, NY 11201, United States</p>
+                            </div>
+                        </div>
+                        <!-- Summary End -->
+                        <hr>
+                        <!-- Summary -->
+                        <div class="c-summary-1 -icon-left">
+                            <div class="c-summary-1-icon">
+                                <span class="ion-ios-telephone-outline"></span>
+                            </div>
+                            <div class="c-summary-1-info">
+                                <h5 class="c-summary-1-title">Phone Number</h5>
+                                <p class="c-summary-1-description u-color-grey">+1 718 952 3645</p>
+                            </div>
+                        </div>
+                        <!-- Summary End -->
+                        <hr>
+                        <!-- Summary -->
+                        <div class="c-summary-1 -icon-left">
+                            <div class="c-summary-1-icon">
+                                <span class="ion-ios-email-outline"></span>
+                            </div>
+                            <div class="c-summary-1-info">
+                                <h5 class="c-summary-1-title">E-Mail Address</h5>
+                                <p class="c-summary-1-description"><a href="mailto:hello@studiocursor.com" class="u-color-grey">hello@studiocursor.com</a></p>
+                            </div>
+                        </div>
+                        <!-- Summary End -->
+                        <hr>
+                        <h6>Social Media</h6>
+                        <!-- Social Icons -->
+                        <div class="c-social-1 -color-mixed-outline -hover-mixed-default -size-small">
+                            <ul class="c-social-1-inner">
+                                <li class="c-social-1-item"><a class="c-social-1-link -icon-facebook" href="#" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li class="c-social-1-item"><a class="c-social-1-link -icon-twitter" href="#" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li class="c-social-1-item"><a class="c-social-1-link -icon-linkedin" href="#" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                <li class="c-social-1-item"><a class="c-social-1-link -icon-google-plus" href="#" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                        <!-- Social Icons End -->
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="page-contact-1-form">
+                        <!-- Contact Title -->
+                        <h2 class="page-contact-1-title">Contact Form</h2>
+                        <!-- Contact Title End -->
+
+                        <!-- Divider -->
+                        <div class="c-divider-1 -style-diagonal -size-large"></div>
+                        <!-- Divider End -->
+
+                        <!-- Space -->
+                        <div class="u-space"></div>
+                        <!-- Space End -->
+
+                        <!-- Contact Form -->
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="c-form-group">
+                                        <label class="c-form-label">Name</label>
+                                        <input class="c-form-input" type="text" name="contact-name" placeholder="Enter Your Name" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="c-form-group">
+                                        <label class="c-form-label">Surname</label>
+                                        <input class="c-form-input" type="text" name="contact-surname" placeholder="Enter Your Surname" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="c-form-group">
+                                        <label class="c-form-label">Email</label>
+                                        <input class="c-form-input" type="text" name="contact-email" placeholder="Enter Your Email" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="c-form-group">
+                                        <label class="c-form-label">Phone</label>
+                                        <input class="c-form-input" type="text" name="contact-phone" placeholder="Enter Your Phone" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="c-form-group">
+                                        <label class="c-form-label">Message</label>
+                                        <textarea class="c-form-textarea" name="contact-message" rows="3" placeholder="Enter Your Message" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <button class="c-button-1 -color-green-outline -hover-green-default -size-small" type="submit" name="contact-button">SEND FORM</button>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- Contact Form End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Section Contact End -->

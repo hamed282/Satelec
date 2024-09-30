@@ -1,0 +1,57 @@
+{% load static %}
+
+<div class="site-wrapper">
+    <!-- Footer -->
+    <footer class="c-footer-1 -bg-dark">
+        <div class="c-container">
+            <div class="c-footer-1-top">
+                <div class="c-footer-1-about">
+                    <p><img src="{{ logo.logo_footer.url }}" width="140" alt="{{ logo.logo_footer_alt }}"></p>
+                    <p>Connecting Markets, Delivering Success</p>
+                </div>
+                <nav class="c-footer-1-nav">
+                    <h6 class="c-footer-1-nav-title">Company</h6>
+                    <ul>
+                        <li class="c-footer-1-nav-item"><a class="c-footer-1-nav-link" href="{% url 'home:aboutus' %}">About us</a></li>
+                        <li class="c-footer-1-nav-item"><a class="c-footer-1-nav-link" href="{% url 'home:mission_vision' %}">Mission & Vision</a></li>
+                        <li class="c-footer-1-nav-item"><a class="c-footer-1-nav-link" href="{% url 'home:costumer_centric_focus' %}">Customer Centric Focus</a></li>
+                        <li class="c-footer-1-nav-item"><a class="c-footer-1-nav-link" href="{% url 'home:commitment' %}">Commitment To Quality</a></li>
+                        <li class="c-footer-1-nav-item"><a class="c-footer-1-nav-link" href="{% url 'home:sustainability_initiatives' %}">Sustainability Initiative</a></li>
+                    </ul>
+                </nav>
+                <nav class="c-footer-1-nav">
+                    <h6 class="c-footer-1-nav-title">Services</h6>
+                    <ul>
+                        <li class="c-footer-1-nav-item"><a class="c-footer-1-nav-link" href="{% url 'home:electrical_equipments' %}">Electrical Equipment</a></li>
+                        <li class="c-footer-1-nav-item"><a class="c-footer-1-nav-link" href="{% url 'home:solar_systems' %}">Solar Systems</a></li>
+                        <li class="c-footer-1-nav-item"><a class="c-footer-1-nav-link" href="{% url 'home:heavy_machineries' %}">Heavy Machineries</a></li>
+                        <li class="c-footer-1-nav-item"><a class="c-footer-1-nav-link" href="{% url 'home:commodities_trading' %}">Commodities</a></li>
+                        <li class="c-footer-1-nav-item"><a class="c-footer-1-nav-link" href="{% url 'home:healthcare_products' %}">Healthcare</a></li>
+                    </ul>
+                </nav>
+                <nav class="c-footer-1-nav">
+                    <h6 class="c-footer-1-nav-title">Help &amp; Support</h6>
+                    <ul>
+                        <li class="c-footer-1-nav-item"><a class="c-footer-1-nav-link" href="{% url 'home:contactus' %}">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="c-footer-1-bottom">
+                <div class="c-footer-1-copyright">
+                    <p>© 2016-2017 Cursor Creative Studio — All Rights Reserved.</p>
+                </div>
+                <div class="c-footer-1-social">
+                    <div class="c-social-1 -color-grey-simple -hover-white-simple -corner-circle -size-small">
+                        <ul class="c-social-1-inner">
+                            <li class="c-social-1-item"><a class="c-social-1-link -icon-facebook" href="#" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li class="c-social-1-item"><a class="c-social-1-link -icon-twitter" href="#" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                            <li class="c-social-1-item"><a class="c-social-1-link -icon-linkedin" href="#" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                            <li class="c-social-1-item"><a class="c-social-1-link -icon-google-plus" href="#" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer End -->
+</div>
