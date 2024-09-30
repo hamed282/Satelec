@@ -15,12 +15,12 @@ if DEBUG:
     ALLOWED_HOSTS = ['*']
     # ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'api.healfit.ae', 'www.api.healfit.ae', 'healfit.ae']
 
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
+    # DATABASES = {
+    #     'default': {
+    #         'ENGINE': 'django.db.backends.sqlite3',
+    #         'NAME': BASE_DIR / 'db.sqlite3',
+    #     }
+    # }
 
     # Ensure the default charset is UTF-8
     DEFAULT_CHARSET = 'utf-8'
@@ -28,19 +28,19 @@ if DEBUG:
     # Ensure the default encoding for template rendering is UTF-8
     FILE_CHARSET = 'utf-8'
 
-    # DATABASES = {
-    #     'default': {
-    #         'ENGINE': 'django.db.backends.mysql',
-    #         'NAME': os.getenv('NAME'),
-    #         'USER': os.getenv('USER'),
-    #         'PASSWORD': os.getenv('PASSWORD'),
-    #         'HOST': os.getenv('HOST'),
-    #         'PORT': os.getenv('PORT'),
-    #         'OPTIONS': {
-    #             'charset': 'utf8mb4',
-    #         },
-    #     }
-    # }
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'healfita_satelec',
+            'USER': 'healfita_healfit_user',
+            'PASSWORD': 'BE*]ZjDOk^Tj',
+            'HOST': 'localhost',
+            'PORT': '3306',
+            'OPTIONS': {
+                'charset': 'utf8mb4',
+            },
+        }
+    }
     CORS_ORIGIN_ALLOW_ALL = True
     # CORS_ALLOWED_ORIGINS = [
     #     'https://healfit.ae',  # دامنه فرانت‌اند شما
@@ -56,11 +56,11 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': os.getenv('NAME'),
-            'USER': os.getenv('USER'),
-            'PASSWORD': os.getenv('PASSWORD'),
-            'HOST': os.getenv('HOST'),
-            'PORT': os.getenv('PORT'),
+            'NAME': 'healfita_satelec',
+            'USER': 'healfita_healfit_user',
+            'PASSWORD': 'BE*]ZjDOk^Tj',
+            'HOST': 'localhost',
+            'PORT': '3306',
             'OPTIONS': {
                 'charset': 'utf8mb4',
             },
