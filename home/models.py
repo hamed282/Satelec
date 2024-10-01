@@ -50,6 +50,10 @@ class TestimonialModel(models.Model):
     header = models.CharField(max_length=512)
     image = models.ImageField(upload_to='img/testimonial')
 
+    class Meta:
+        verbose_name = 'Testimonial Section'
+        verbose_name_plural = 'Testimonial Section'
+
 
 class AddTestimonialModel(models.Model):
     testimonial = models.ForeignKey(TestimonialModel, models.CASCADE)
@@ -61,6 +65,10 @@ class AddTestimonialModel(models.Model):
 class ClientModel(models.Model):
     title = models.CharField(max_length=128)
     description = models.TextField()
+
+    class Meta:
+        verbose_name = 'Client Section'
+        verbose_name_plural = 'Client Section'
 
 
 class AddClientModel(models.Model):
@@ -74,6 +82,10 @@ class AddClientModel(models.Model):
 class BlogModel(models.Model):
     title = models.CharField(max_length=64)
     description = models.TextField()
+
+    class Meta:
+        verbose_name = 'Blog Section'
+        verbose_name_plural = 'Blog Section'
 
 
 class ContactUsModel(models.Model):
