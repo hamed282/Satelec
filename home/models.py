@@ -7,10 +7,18 @@ class LogoModel(models.Model):
     logo_footer = models.ImageField(upload_to='img/logo')
     logo_footer_alt = models.CharField(max_length=200)
 
+    class Meta:
+        verbose_name = 'Header And Footer Logo'
+        verbose_name_plural = 'Header And Footer Logo'
+
 
 class HomeAboutUsModel(models.Model):
     title = models.CharField(max_length=256)
     subtitle = models.TextField()
+
+    class Meta:
+        verbose_name = 'About Us Section'
+        verbose_name_plural = 'About Us Section'
 
 
 class AddAboutGalleryModel(models.Model):
@@ -22,6 +30,10 @@ class AddAboutGalleryModel(models.Model):
 class OurServiceModel(models.Model):
     title = models.CharField(max_length=256)
     subtitle = models.TextField()
+
+    class Meta:
+        verbose_name = 'Our service Section'
+        verbose_name_plural = 'Our Service Section'
 
 
 class ServiceItemModel(models.Model):
