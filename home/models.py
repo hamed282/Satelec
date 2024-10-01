@@ -95,3 +95,7 @@ class ContactUsModel(models.Model):
     phone_number = models.CharField(max_length=24)
     message = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'Contact Us'
+        verbose_name_plural = 'Contact Us'
