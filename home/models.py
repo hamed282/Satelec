@@ -1,3 +1,4 @@
+from django.core.exceptions import ValidationError
 from django.db import models
 
 
@@ -11,6 +12,13 @@ class LogoModel(models.Model):
         verbose_name = 'Header And Footer Logo'
         verbose_name_plural = 'Header And Footer Logo'
 
+    def clean(self):
+        if not self.pk and LogoModel.objects.exists():
+            # This below line will render error by breaking page, you will see
+            raise ValidationError(
+                "There can be only one Video you can not add another"
+            )
+
 
 class HomeAboutUsModel(models.Model):
     title = models.CharField(max_length=256)
@@ -19,6 +27,13 @@ class HomeAboutUsModel(models.Model):
     class Meta:
         verbose_name = 'About Us Section'
         verbose_name_plural = 'About Us Section'
+
+    def clean(self):
+        if not self.pk and HomeAboutUsModel.objects.exists():
+            # This below line will render error by breaking page, you will see
+            raise ValidationError(
+                "There can be only one Video you can not add another"
+            )
 
 
 class AddAboutGalleryModel(models.Model):
@@ -34,6 +49,13 @@ class OurServiceModel(models.Model):
     class Meta:
         verbose_name = 'Our service Section'
         verbose_name_plural = 'Our Service Section'
+
+    def clean(self):
+        if not self.pk and OurServiceModel.objects.exists():
+            # This below line will render error by breaking page, you will see
+            raise ValidationError(
+                "There can be only one Video you can not add another"
+            )
 
 
 class ServiceItemModel(models.Model):
@@ -54,6 +76,13 @@ class TestimonialModel(models.Model):
         verbose_name = 'Testimonial Section'
         verbose_name_plural = 'Testimonial Section'
 
+    def clean(self):
+        if not self.pk and TestimonialModel.objects.exists():
+            # This below line will render error by breaking page, you will see
+            raise ValidationError(
+                "There can be only one Video you can not add another"
+            )
+
 
 class AddTestimonialModel(models.Model):
     testimonial = models.ForeignKey(TestimonialModel, models.CASCADE)
@@ -69,6 +98,13 @@ class ClientModel(models.Model):
     class Meta:
         verbose_name = 'Client Section'
         verbose_name_plural = 'Client Section'
+
+    def clean(self):
+        if not self.pk and ClientModel.objects.exists():
+            # This below line will render error by breaking page, you will see
+            raise ValidationError(
+                "There can be only one Video you can not add another"
+            )
 
 
 class AddClientModel(models.Model):
@@ -86,6 +122,13 @@ class BlogModel(models.Model):
     class Meta:
         verbose_name = 'Blog Section'
         verbose_name_plural = 'Blog Section'
+
+    def clean(self):
+        if not self.pk and BlogModel.objects.exists():
+            # This below line will render error by breaking page, you will see
+            raise ValidationError(
+                "There can be only one Video you can not add another"
+            )
 
 
 class ContactUsModel(models.Model):
