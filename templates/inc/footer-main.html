@@ -22,11 +22,9 @@
                 <nav class="c-footer-1-nav">
                     <h6 class="c-footer-1-nav-title">Services</h6>
                     <ul>
-                        <li class="c-footer-1-nav-item"><a class="c-footer-1-nav-link" href="{% url 'home:electrical_equipments' %}">Electrical Equipment</a></li>
-                        <li class="c-footer-1-nav-item"><a class="c-footer-1-nav-link" href="{% url 'home:solar_systems' %}">Solar Systems</a></li>
-                        <li class="c-footer-1-nav-item"><a class="c-footer-1-nav-link" href="{% url 'home:heavy_machineries' %}">Heavy Machineries</a></li>
-                        <li class="c-footer-1-nav-item"><a class="c-footer-1-nav-link" href="{% url 'home:commodities_trading' %}">Commodities</a></li>
-                        <li class="c-footer-1-nav-item"><a class="c-footer-1-nav-link" href="{% url 'home:healthcare_products' %}">Healthcare</a></li>
+                        {% for item in data %}
+                            <li class="c-footer-1-nav-item"><a class="c-footer-1-nav-link" href="{% url 'home:what_we_do_item' data.slug %}">{{ data.title }}</a></li>
+                        {% endfor %}
                     </ul>
                 </nav>
                 <nav class="c-footer-1-nav">
