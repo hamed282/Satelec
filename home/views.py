@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views import View
-from .models import (AddAboutGalleryModel, HomeModel,
+from .models import (AddAboutGalleryModel, HomeModel, AddServiceModel,
                      AddTestimonialModel, AddClientModel, ContactUsModel,
                      AboutPageModel, MissionAndVisionModel, SustainabilityInitiativeModel, CustomerCentricFocusModel,
                      CommitmentModel)
@@ -12,8 +12,12 @@ class HomeView(View):
 
         blogs = Blogs.objects.all()[:9]
         data = HomeModel.objects.all().first()
+        about_items = AddAboutGalleryModel.objects.all()
+        service_items = AddServiceModel.objects.all()
         context = {'blogs': blogs,
-                   'data': data}
+                   'data': data,
+                   'about_items': about_items,
+                   'service_items': service_items}
         return render(request, 'home/index.html',
                       context=context)
 
