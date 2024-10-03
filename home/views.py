@@ -35,7 +35,7 @@ class AboutUsView(View):
 
 class ContactUsView(View):
     def get(self, request):
-        data = AboutPageModel.objects.all().first()
+        data = ContactUsModel.objects.all().first()
         context = {'data': data}
         return render(request, 'contactus/index.html', context=context)
 
