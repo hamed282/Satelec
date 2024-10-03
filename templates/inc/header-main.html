@@ -31,16 +31,10 @@
                             </li>
                             <li class="sub"><a href="{% url 'home:what_we_do' %}">What we do</a>
                                 <ul>
-                                    <li><a href="{% url 'home:electrical_equipments' %}">Electrical Equipment</a>
-                                    </li>
-                                    <li><a href="{% url 'home:solar_systems' %}">Solar Systems</a>
-                                    </li>
-                                    <li><a href="{% url 'home:heavy_machineries' %}">Heavy Machineries</a>
-                                    </li>
-                                    <li><a href="{% url 'home:commodities_trading' %}">Commodities Trading</a>
-                                    </li>
-                                    <li><a href="{% url 'home:healthcare_products' %}">Healthcare Products</a>
-                                    </li>
+                                    {% for item in data %}
+                                        <li><a href="{% url 'home:what_we_do_item' data.slug %}">{{ data.title }}</a>
+                                        </li>
+                                    {% endfor %}
                                 </ul>
                             </li>
                             <li class="sub"><a href="#">Our partners</a>
