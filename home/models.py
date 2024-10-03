@@ -101,7 +101,7 @@ class ContactUsPageModel(models.Model):
     map = models.CharField(max_length=512)
     address = models.CharField(max_length=64)
     phone_number = models.CharField(max_length=64)
-    emai = models.EmailField()
+    email = models.EmailField()
 
     class Meta:
         verbose_name = 'ContactUs Page'
