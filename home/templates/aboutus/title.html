@@ -2,13 +2,13 @@
 
 <!-- Section Title -->
 <div class="c-section -space-large -bg-dark u-flex u-flex-align-end u-height-v90" data-cursor-overlay="4">
-    <div class="c-section-photo" data-cursor-bg-img="{% static 'assets/img/bg-3.jpg' %}"></div>
+    <div class="c-section-photo" data-cursor-bg-img="{{ data.banner.url }}"></div>
     <div class="c-section-overlay"></div>
     <div class="c-container">
         <!-- Heading -->
-        <h6 class="u-text-sup u-color-white">ABOUT US</h6>
-        <h1 class="u-text-hero u-color-white">Cursor Studio</h1>
-        <p class="u-text-lead u-color-white">Lorem ipsum dolor sit amet consectetur adipiscing elit <br>semper tempor congue aliquam.</p>
+        <h6 class="u-text-sup u-color-white">{{ data.title }}</h6>
+        <h1 class="u-text-hero u-color-white">{{ data.subtitle }}</h1>
+        <p class="u-text-lead u-color-white">{{ data.description }}</p>
         <!-- Heading End -->
     </div>
 </div>

@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.views import View
 from .models import (LogoModel, HomeAboutUsModel, AddAboutGalleryModel, ServiceItemModel, OurServiceModel,
-                     TestimonialModel, AddTestimonialModel, ClientModel, AddClientModel, BlogModel, ContactUsModel)
+                     TestimonialModel, AddTestimonialModel, ClientModel, AddClientModel, BlogModel, ContactUsModel,
+                     AboutPageModel, MissionAndVisionModel, SustainabilityInitiativeModel, CustomerCentricFocusModel,
+                     CommitmentModel)
 from blog.models import BlogModel as Blogs
 
 
@@ -31,7 +33,8 @@ class HomeView(View):
 class AboutUsView(View):
     def get(self, request):
         logo = LogoModel.objects.all().first()
-        return render(request, 'aboutus/index.html', context={'logo': logo})
+        data = AboutPageModel.objects.all().first()
+        return render(request, 'aboutus/index.html', context={'logo': logo, 'data': data})
 
 
 class ContactUsView(View):
@@ -55,30 +58,37 @@ class ContactUsView(View):
 class MissionVisionView(View):
     def get(self, request):
         logo = LogoModel.objects.all().first()
-        return render(request, 'mission_vision/index.html', context={'logo': logo})
+        data = MissionAndVisionModel.objects.all().first()
+        return render(request, 'mission_vision/index.html', context={'logo': logo, 'data': data})
 
 
 class CommitmentView(View):
     def get(self, request):
         logo = LogoModel.objects.all().first()
-        return render(request, 'commitment/index.html', context={'logo': logo})
+        data = CommitmentModel.objects.all().first()
+        context = {'logo': logo, 'data': data}
+        return render(request, 'commitment/index.html', context=context)
 
 
 class CostumerCentricFocusView(View):
     def get(self, request):
         logo = LogoModel.objects.all().first()
-        return render(request, 'customer_centric_focus/index.html', context={'logo': logo})
+        data = CustomerCentricFocusModel.objects.all().first()
+        return render(request, 'customer_centric_focus/index.html', context={'logo': logo, 'data': data})
 
 
 class SustainabilityInitiativeView(View):
     def get(self, request):
         logo = LogoModel.objects.all().first()
-        return render(request, 'sustainability_initiative/index.html', context={'logo': logo})
+        data = SustainabilityInitiativeModel.objects.all().first()
+        return render(request, 'sustainability/index.html', context={'logo': logo, 'data': data})
 
 
 class WhatWeDoView(View):
     def get(self, request):
-        return render(request, 'what-we-do/index.html')
+        logo = LogoModel.objects.all().first()
+        data = SustainabilityInitiativeModel.objects.all().first()
+        return render(request, 'what-we-do/index.html', context={'logo': logo, 'data': data})
 
 
 class ElectricalEquipmentView(View):

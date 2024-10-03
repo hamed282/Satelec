@@ -4,8 +4,8 @@
 <div class="c-section -space-large">
     <div class="c-container">
         <!-- Heading -->
-        <h6 class="u-text-sup">ABOUT US</h6>
-        <h2 class="u-text-title">solving problems with <br>clarity, simplicity &amp; honesty.</h2>
+        <h6 class="u-text-sup">{{ data.title_about }}</h6>
+        <h2 class="u-text-title">{{ data.subtitle_about }}</h2>
         <!-- Heading End -->
 
         <!-- Space -->
@@ -16,18 +16,16 @@
         <div class="row -gutter-medium">
             <!-- Summary -->
             <div class="col-md-6">
-                <h5 class="u-margin-bottom u-text-w400">Our Studio</h5>
-                <p class="u-color-grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Posuere ut eros non suscipit. Vivamus bibendum orci sed augue congue facilisis. Curabitur placerat accumsan egestas. </p>
-                <p class="u-color-grey">Nulla suscipit laoreet mi, in dictum justo rutrum a. Donec non luctus lectus, ac tempus urna. Pellentesque iaculis nisi sit amet urna mollis, ut tristique justo egestas. Pellentesque vitae efficitur erat, a rutrum velit.</p>
-                <p><a href="#" class="c-link-1">Read more <span class="c-link-1-icon -right ion-android-arrow-forward"></span></a></p>
+                <h5 class="u-margin-bottom u-text-w400">{{ data.column1_title }}</h5>
+                <p class="u-color-grey"> {{ data.column1_description }}</p>
+                <p><a href="{{ data.column1_link }}" class="c-link-1">Read more <span class="c-link-1-icon -right ion-android-arrow-forward"></span></a></p>
             </div>
             <!-- Summary End -->
             <!-- Summary -->
             <div class="col-md-6">
-                <h5 class="u-margin-bottom u-text-w400">Our Process</h5>
-                <p class="u-color-grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Posuere ut eros non suscipit. Vivamus bibendum orci sed augue congue facilisis. Curabitur placerat accumsan egestas. </p>
-                <p class="u-color-grey">Nulla suscipit laoreet mi, in dictum justo rutrum a. Donec non luctus lectus, ac tempus urna. Pellentesque iaculis nisi sit amet urna mollis, ut tristique justo egestas. Pellentesque vitae efficitur erat, a rutrum velit.</p>
-                <p><a href="#" class="c-link-1">Read more <span class="c-link-1-icon -right ion-android-arrow-forward"></span></a></p>
+                <h5 class="u-margin-bottom u-text-w400">{{ data.column2_title }}</h5>
+                <p class="u-color-grey">{{ data.column2_description }}</p>
+                <p><a href="{{ data.column2_link }}" class="c-link-1">Read more <span class="c-link-1-icon -right ion-android-arrow-forward"></span></a></p>
             </div>
             <!-- Summary End -->
         </div>

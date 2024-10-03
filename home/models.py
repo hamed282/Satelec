@@ -142,3 +142,98 @@ class ContactUsModel(models.Model):
     class Meta:
         verbose_name = 'Contact Us'
         verbose_name_plural = 'Contact Us'
+
+
+class AboutPageModel(models.Model):
+    banner = models.ImageField(upload_to='img/aboutus')
+    title = models.CharField(max_length=128)
+    subtitle = models.CharField(max_length=128)
+    description = models.CharField(max_length=256)
+
+    title_about = models.CharField(max_length=128)
+    subtitle_about = models.CharField(max_length=128)
+    column1_title = models.CharField(max_length=128)
+    column1_description = models.TextField(max_length=512)
+    column1_link = models.CharField(max_length=512)
+    column2_title = models.CharField(max_length=128)
+    column2_description = models.TextField(max_length=512)
+    column2_link = models.CharField(max_length=512)
+
+
+class MissionAndVisionModel(models.Model):
+    banner = models.ImageField(upload_to='img/mission-vision')
+    title = models.CharField(max_length=128)
+    subtitle = models.CharField(max_length=128)
+    description = models.CharField(max_length=256)
+
+    title_about = models.CharField(max_length=128)
+    subtitle_about = models.CharField(max_length=128)
+    column1_title = models.CharField(max_length=128)
+    column1_description = models.TextField(max_length=512)
+    column1_link = models.CharField(max_length=512)
+    column2_title = models.CharField(max_length=128)
+    column2_description = models.TextField(max_length=512)
+    column2_link = models.CharField(max_length=512)
+
+
+class CommitmentModel(models.Model):
+    banner = models.ImageField(upload_to='img/commitment')
+    title = models.CharField(max_length=128)
+    subtitle = models.CharField(max_length=128)
+    description = models.CharField(max_length=256)
+
+
+class AddCommitmentModel(models.Model):
+    commitment = models.ForeignKey(CommitmentModel, on_delete=models.CASCADE)
+    title = models.CharField(max_length=128)
+    description = models.CharField(max_length=256)
+    link = models.CharField(max_length=512)
+    icon_class = models.CharField(max_length=128)
+
+
+class CustomerCentricFocusModel(models.Model):
+    banner = models.ImageField(upload_to='img/customer_centric')
+    title = models.CharField(max_length=128)
+    subtitle = models.CharField(max_length=128)
+    description = models.CharField(max_length=256)
+
+
+class AddCustomerCentricFocusModel(models.Model):
+    commitment = models.ForeignKey(CustomerCentricFocusModel, on_delete=models.CASCADE)
+    title = models.CharField(max_length=128)
+    description = models.CharField(max_length=256)
+    link = models.CharField(max_length=512)
+    icon_class = models.CharField(max_length=128)
+
+
+class SustainabilityInitiativeModel(models.Model):
+    banner = models.ImageField(upload_to='img/sustainability')
+    title = models.CharField(max_length=128)
+    subtitle = models.CharField(max_length=128)
+    description = models.CharField(max_length=256)
+
+
+class AddSustainabilityInitiativeModel(models.Model):
+    commitment = models.ForeignKey(SustainabilityInitiativeModel, on_delete=models.CASCADE)
+    title = models.CharField(max_length=128)
+    description = models.CharField(max_length=256)
+    link = models.CharField(max_length=512)
+    icon_class = models.CharField(max_length=128)
+
+
+class WhatWeDoModel(models.Model):
+    banner = models.ImageField(upload_to='img/what-we-do')
+    title = models.CharField(max_length=128)
+    subtitle = models.CharField(max_length=128)
+    description = models.CharField(max_length=256)
+
+
+class AddWhatWeDoModel(models.Model):
+    commitment = models.ForeignKey(WhatWeDoModel, on_delete=models.CASCADE)
+    title = models.CharField(max_length=128)
+    subtitle = models.CharField(max_length=128)
+    description = models.CharField(max_length=256)
+    link = models.CharField(max_length=512)
+    image = models.ImageField(upload_to='img/what-we-do')
+
+
