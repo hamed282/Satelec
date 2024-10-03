@@ -3,7 +3,7 @@ from django.views import View
 from .models import (AddAboutGalleryModel, HomeModel, AddServiceModel,
                      AddTestimonialModel, AddClientModel, ContactUsModel,
                      AboutPageModel, MissionAndVisionModel, SustainabilityInitiativeModel, CustomerCentricFocusModel,
-                     CommitmentModel)
+                     CommitmentModel, ContactUsPageModel)
 from blog.models import BlogModel as Blogs
 
 
@@ -35,7 +35,7 @@ class AboutUsView(View):
 
 class ContactUsView(View):
     def get(self, request):
-        data = ContactUsModel.objects.all().first()
+        data = ContactUsPageModel.objects.all().first()
         context = {'data': data}
         return render(request, 'contactus/index.html', context=context)
 
