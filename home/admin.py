@@ -53,11 +53,11 @@ class HomeAdmin(admin.ModelAdmin):
             'classes': ('collapse',),
         }),
         ('About Us Section', {
-            'fields': ('title_about', 'subtitle_about',),
+            'fields': ('title_about', 'subtitle_about', 'description_about'),
             'classes': ('collapse',),
         }),
         ('Our Services Section', {
-            'fields': ('title_service', 'subtitle_service',),
+            'fields': ('title_service', 'subtitle_service', 'description_service'),
             'classes': ('collapse',),
         }),
         ('Testimonial Section', {
@@ -65,11 +65,11 @@ class HomeAdmin(admin.ModelAdmin):
             'classes': ('collapse',),
         }),
         ('Clients Section', {
-            'fields': ('title_client', 'description_client',),
+            'fields': ('title_client', 'subtitle_client', 'description_client', ),
             'classes': ('collapse',),
         }),
         ('Blog Section', {
-            'fields': ('title_blog', 'description_blog',),
+            'fields': ('title_blog', 'subtitle_blog', 'description_blog',),
             'classes': ('collapse',),
         }),
 
