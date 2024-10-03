@@ -1,65 +1,80 @@
 from django.contrib import admin
-from .models import (LogoModel, AddAboutGalleryModel, HomeAboutUsModel, OurServiceModel, ServiceItemModel,
-                     TestimonialModel, AddTestimonialModel, ClientModel, AddClientModel, BlogModel, ContactUsModel,
-                     AboutPageModel, MissionAndVisionModel, CommitmentModel, AddCommitmentModel,
+from .models import (AddAboutGalleryModel, HomeModel,
+                     AddTestimonialModel, AddClientModel, ContactUsModel,
+                     AboutPageModel, WhatWeDoItemModel, CommitmentModel, AddCommitmentModel,
                      SustainabilityInitiativeModel, AddCustomerCentricFocusModel, AddSustainabilityInitiativeModel,
-                     CustomerCentricFocusModel, WhatWeDoModel, AddWhatWeDoModel)
+                     CustomerCentricFocusModel, WhatWeDoModel, AddWhatWeDoModel, AddServiceModel, ContactUsPageModel)
 
 
-class LogoGalleryInline(admin.TabularInline):
+class AboutItemInline(admin.StackedInline):
     model = AddAboutGalleryModel
     extra = 1
 
 
-class OurServiceInline(admin.TabularInline):
-    model = ServiceItemModel
+class OurServiceInline(admin.StackedInline):
+    model = AddServiceModel
     extra = 1
 
 
-class TestimonialInline(admin.TabularInline):
+class TestimonialInline(admin.StackedInline):
     model = AddTestimonialModel
     extra = 1
 
 
-class ClientInline(admin.TabularInline):
+class ClientInline(admin.StackedInline):
     model = AddClientModel
     extra = 1
 
 
-class CommitmentInline(admin.TabularInline):
+class CommitmentInline(admin.StackedInline):
     model = AddCommitmentModel
     extra = 1
 
 
-class SustainabilityInitiativeInline(admin.TabularInline):
+class SustainabilityInitiativeInline(admin.StackedInline):
     model = AddSustainabilityInitiativeModel
     extra = 1
 
 
-class CustomerCentricFocusInline(admin.TabularInline):
+class CustomerCentricFocusInline(admin.StackedInline):
     model = AddCustomerCentricFocusModel
     extra = 1
 
 
-class AddWhatWeDoInline(admin.TabularInline):
+class AddWhatWeDoInline(admin.StackedInline):
     model = AddWhatWeDoModel
     extra = 1
 
 
-class HomeAboutUsAdmin(admin.ModelAdmin):
-    inlines = (LogoGalleryInline,)
+class HomeAdmin(admin.ModelAdmin):
+    fieldsets = (
+        ('Logo Section', {
+            'fields': ('logo_header', 'logo_header_alt', 'logo_footer', 'logo_footer_alt',),
+            'classes': ('collapse',),
+        }),
+        ('About Us Section', {
+            'fields': ('title_about', 'subtitle_about',),
+            'classes': ('collapse',),
+        }),
+        ('Our Services Section', {
+            'fields': ('title_service', 'subtitle_service',),
+            'classes': ('collapse',),
+        }),
+        ('Testimonial Section', {
+            'fields': ('title_testimonial', 'header_testimonial', 'image_testimonial'),
+            'classes': ('collapse',),
+        }),
+        ('Clients Section', {
+            'fields': ('title_client', 'description_client',),
+            'classes': ('collapse',),
+        }),
+        ('Blog Section', {
+            'fields': ('title_blog', 'description_blog',),
+            'classes': ('collapse',),
+        }),
 
-
-class OurServiceAdmin(admin.ModelAdmin):
-    inlines = (OurServiceInline,)
-
-
-class TestimonialAdmin(admin.ModelAdmin):
-    inlines = (TestimonialInline,)
-
-
-class ClientAdmin(admin.ModelAdmin):
-    inlines = (ClientInline,)
+    )
+    inlines = [AboutItemInline, OurServiceInline, TestimonialInline, ClientInline]
 
 
 class CommitmentAdmin(admin.ModelAdmin):
@@ -78,16 +93,12 @@ class AddWhatWeDoAdmin(admin.ModelAdmin):
     inlines = (AddWhatWeDoInline,)
 
 
-admin.site.register(LogoModel)
-admin.site.register(HomeAboutUsModel, HomeAboutUsAdmin)
-admin.site.register(OurServiceModel, OurServiceAdmin)
-admin.site.register(TestimonialModel, TestimonialAdmin)
-admin.site.register(ClientModel, ClientAdmin)
-admin.site.register(BlogModel)
+admin.site.register(HomeModel, HomeAdmin)
+admin.site.register(ContactUsPageModel)
 admin.site.register(ContactUsModel)
 admin.site.register(AboutPageModel)
-admin.site.register(MissionAndVisionModel)
 admin.site.register(CommitmentModel, CommitmentAdmin)
 admin.site.register(SustainabilityInitiativeModel, AddSustainabilityInitiativeAdmin)
 admin.site.register(CustomerCentricFocusModel, AddCustomerCentricFocusAdmin)
 admin.site.register(WhatWeDoModel, AddWhatWeDoAdmin)
+admin.site.register(WhatWeDoItemModel)
