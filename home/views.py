@@ -35,9 +35,9 @@ class AboutUsView(View):
 
 class ContactUsView(View):
     def get(self, request):
-        logo = ContactUsModel.objects.all().first()
-
-        return render(request, 'contactus/index.html', context={'logo': logo})
+        data = AboutPageModel.objects.all().first()
+        context = {'data': data}
+        return render(request, 'contactus/index.html', context=context)
 
     def post(self, request):
         logo = ContactUsModel.objects.all().first()
