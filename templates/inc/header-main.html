@@ -31,7 +31,7 @@
                             </li>
                             <li class="sub"><a href="{% url 'home:what_we_do' %}">What we do</a>
                                 <ul>
-                                    {% for item in data %}
+                                    {% for item in data2 %}
                                         <li><a href="{% url 'home:what_we_do_item' data.slug %}">{{ data.title }}</a>
                                         </li>
                                     {% endfor %}

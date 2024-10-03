@@ -22,7 +22,7 @@
                 <nav class="c-footer-1-nav">
                     <h6 class="c-footer-1-nav-title">Services</h6>
                     <ul>
-                        {% for item in data %}
+                        {% for item in data2 %}
                             <li class="c-footer-1-nav-item"><a class="c-footer-1-nav-link" href="{% url 'home:what_we_do_item' data.slug %}">{{ data.title }}</a></li>
                         {% endfor %}
                     </ul>
