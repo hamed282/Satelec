@@ -14,10 +14,14 @@ class HomeView(View):
         data = HomeModel.objects.all().first()
         about_items = AddAboutGalleryModel.objects.all()
         service_items = AddServiceModel.objects.all()
+        testimonial_items = AddTestimonialModel.objects.all()
+        client_items = AddClientModel.objects.all()
         context = {'blogs': blogs,
                    'data': data,
                    'about_items': about_items,
-                   'service_items': service_items}
+                   'service_items': service_items,
+                   'testimonial_items': testimonial_items,
+                   'client_items': client_items}
         return render(request, 'home/index.html',
                       context=context)
 
