@@ -11,11 +11,13 @@ class HomeModel(models.Model):
 
     # About Us Section
     title_about = models.CharField(max_length=256)
-    subtitle_about = models.TextField()
+    subtitle_about = models.CharField(max_length=256)
+    description_about = models.TextField()
 
     # Our service Section
     title_service = models.CharField(max_length=256)
     subtitle_service = models.TextField()
+    description_service = models.TextField()
 
     # Testimonial Section
     title_testimonial = models.CharField(max_length=64)
@@ -24,10 +26,12 @@ class HomeModel(models.Model):
 
     # Client Section
     title_client = models.CharField(max_length=128)
+    subtitle_client = models.CharField(max_length=128)
     description_client = models.TextField()
 
     # Blog Section
     title_blog = models.CharField(max_length=64)
+    subtitle_blog = models.CharField(max_length=64)
     description_blog = models.TextField()
 
     #
