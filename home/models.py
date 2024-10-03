@@ -97,6 +97,7 @@ class ContactUsPageModel(models.Model):
     title = models.CharField(max_length=64)
     subtitle = models.CharField(max_length=64)
     description = models.TextField()
+    image = models.ImageField(upload_to='img/contactus')
     map = models.CharField(max_length=512)
     address = models.CharField(max_length=64)
     phone_number = models.CharField(max_length=64)
