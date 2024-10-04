@@ -93,7 +93,7 @@ class SustainabilityInitiativeView(View):
         context = {'data': data,
                    'sustainability': sustainability,
                    'add_sustainability': add_sustainability}
-        return render(request, 'sustainability/index.html', context=context)
+        return render(request, 'sustainability_initiative/index.html', context=context)
 
 
 class WhatWeDoView(View):
