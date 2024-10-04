@@ -3,7 +3,8 @@ from .models import (AddAboutGalleryModel, HomeModel,
                      AddTestimonialModel, AddClientModel, ContactUsModel,
                      AboutUsPageModel, WhatWeDoItemModel, CommitmentModel, AddCommitmentModel,
                      SustainabilityInitiativeModel, AddCustomerCentricFocusModel, AddSustainabilityInitiativeModel,
-                     CustomerCentricFocusModel, WhatWeDoModel, AddWhatWeDoModel, AddServiceModel, ContactUsPageModel)
+                     CustomerCentricFocusModel, WhatWeDoModel, AddWhatWeDoModel, AddServiceModel, ContactUsPageModel,
+                     MissionAndVisionModel)
 
 
 class AboutItemInline(admin.StackedInline):
@@ -97,6 +98,7 @@ admin.site.register(HomeModel, HomeAdmin)
 admin.site.register(ContactUsPageModel)
 admin.site.register(ContactUsModel)
 admin.site.register(AboutUsPageModel)
+admin.site.register(MissionAndVisionModel)
 admin.site.register(CommitmentModel, CommitmentAdmin)
 admin.site.register(SustainabilityInitiativeModel, AddSustainabilityInitiativeAdmin)
 admin.site.register(CustomerCentricFocusModel, AddCustomerCentricFocusAdmin)
