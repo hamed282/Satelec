@@ -164,7 +164,7 @@ class MissionAndVisionModel(models.Model):
 class CommitmentModel(models.Model):
     banner = models.ImageField(upload_to='img/commitment')
     title = models.CharField(max_length=128)
-    subtitle = models.CharField(max_length=128)
+    subtitle = models.TextField(max_length=128)
     description = models.CharField(max_length=256)
 
     class Meta:
@@ -175,7 +175,7 @@ class CommitmentModel(models.Model):
 class AddCommitmentModel(models.Model):
     commitment = models.ForeignKey(CommitmentModel, on_delete=models.CASCADE)
     title = models.CharField(max_length=128)
-    description = models.CharField(max_length=256)
+    description = models.TextField(max_length=256)
     link = models.CharField(max_length=512)
     icon_class = models.CharField(max_length=128)
 
