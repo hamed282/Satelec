@@ -125,7 +125,7 @@ class AboutUsPageModel(models.Model):
     banner = models.ImageField(upload_to='img/aboutus')
     title = models.CharField(max_length=128)
     subtitle = models.CharField(max_length=128)
-    description = models.CharField(max_length=256)
+    description = models.TextField(max_length=256)
 
     title_about = models.CharField(max_length=128)
     subtitle_about = models.CharField(max_length=128)
