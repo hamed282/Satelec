@@ -8,8 +8,10 @@ class BlogView(View):
     def get(self, request):
         data = HomeModel.objects.all().first()
         blogs = BlogModel.objects.all()
+        categories = BlogCategoryModel.objects.all()
         context = {'data': data,
-                   'blogs': blogs}
+                   'blogs': blogs,
+                   'categories': categories}
         return render(request, 'blog/index.html', context=context)
 
 
