@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views import View
 from .models import (AddAboutGalleryModel, HomeModel, AddServiceModel,
                      AddTestimonialModel, AddClientModel, ContactUsModel,
-                     AboutPageModel, MissionAndVisionModel, SustainabilityInitiativeModel, CustomerCentricFocusModel,
+                     AboutUsPageModel, MissionAndVisionModel, SustainabilityInitiativeModel, CustomerCentricFocusModel,
                      CommitmentModel, ContactUsPageModel)
 from blog.models import BlogModel as Blogs
 
@@ -28,9 +28,9 @@ class HomeView(View):
 
 class AboutUsView(View):
     def get(self, request):
-        logo = ContactUsModel.objects.all().first()
-        data = AboutPageModel.objects.all().first()
-        return render(request, 'aboutus/index.html', context={'logo': logo, 'data': data})
+        data = HomeModel.objects.all().first()
+        context = {'data': data}
+        return render(request, 'aboutus/index.html', context={'data': data})
 
 
 class ContactUsView(View):

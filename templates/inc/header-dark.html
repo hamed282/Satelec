@@ -8,7 +8,7 @@
             <div class="c-container">
                 <div class="c-header-1-middle">
                     <div class="c-header-1-logo">
-                        <a href="{% url 'home:home' %}"><img src="{{ logo.logo_header.url }}" alt="{{ logo.logo_header_alt }}"></a>
+                        <a href="{% url 'home:home' %}"><img src="{{ data.logo_header.url }}" alt="{{ data.logo_header_alt }}"></a>
                     </div>
                     <nav class="c-header-1-nav">
                     <ul>
@@ -30,16 +30,10 @@
                         </li>
                         <li class="sub"><a href="{% url 'home:what_we_do' %}">What we do</a>
                             <ul>
-                                <li><a href="{% url 'home:electrical_equipments' %}">Electrical equipments</a>
-                                </li>
-                                <li><a href="{% url 'home:solar_systems' %}">Solar systems</a>
-                                </li>
-                                <li><a href="{% url 'home:heavy_machineries' %}">Heavy machineries</a>
-                                </li>
-                                <li><a href="{% url 'home:commodities_trading' %}">Commodities trading</a>
-                                </li>
-                                <li><a href="{% url 'home:healthcare_products' %}">Healthcare products</a>
-                                </li>
+                                {% for item in data2 %}
+                                    <li><a href="{% url 'home:what_we_do_item' data.slug %}">{{ data.title }}</a>
+                                    </li>
+                                {% endfor %}
                             </ul>
                         </li>
                         <li class="sub"><a href="#">Our partners</a>
@@ -83,13 +77,13 @@
                 </div>
             </div>
             <div class="c-header-1-searcher">
-                    <div class="c-container">
-                        <form class="c-header-1-searcher-form">
-                            <input type="text" class="c-header-1-searcher-field" placeholder="Start Typing &amp; Press Enter ...">
-                            <button type="button" class="c-header-1-searcher-close"><span class="ion-ios-close-empty"></span></button>
-                        </form>
-                    </div>
+                <div class="c-container">
+                    <form class="c-header-1-searcher-form">
+                        <input type="text" class="c-header-1-searcher-field" placeholder="Start Typing &amp; Press Enter ...">
+                        <button type="button" class="c-header-1-searcher-close"><span class="ion-ios-close-empty"></span></button>
+                    </form>
                 </div>
+            </div>
         </div>
     </div>
 </header>

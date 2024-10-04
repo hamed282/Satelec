@@ -121,7 +121,7 @@ class ContactUsModel(models.Model):
         verbose_name_plural = 'ContactUs Submitted'
 
 
-class AboutPageModel(models.Model):
+class AboutUsPageModel(models.Model):
     banner = models.ImageField(upload_to='img/aboutus')
     title = models.CharField(max_length=128)
     subtitle = models.CharField(max_length=128)
@@ -137,8 +137,8 @@ class AboutPageModel(models.Model):
     column2_link = models.CharField(max_length=512)
 
     class Meta:
-        verbose_name = 'About Page'
-        verbose_name_plural = 'About Page'
+        verbose_name = 'AboutUs Page'
+        verbose_name_plural = 'AboutUs Page'
 
 
 class MissionAndVisionModel(models.Model):
