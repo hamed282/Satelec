@@ -3,7 +3,8 @@ from django.views import View
 from .models import (AddAboutGalleryModel, HomeModel, AddServiceModel,
                      AddTestimonialModel, AddClientModel, ContactUsModel,
                      AboutUsPageModel, MissionAndVisionModel, SustainabilityInitiativeModel, CustomerCentricFocusModel,
-                     CommitmentModel, ContactUsPageModel, AddCommitmentModel, AddCustomerCentricFocusModel)
+                     CommitmentModel, ContactUsPageModel, AddCommitmentModel, AddCustomerCentricFocusModel,
+                     AddSustainabilityInitiativeModel)
 from blog.models import BlogModel as Blogs
 
 
@@ -86,9 +87,13 @@ class CostumerCentricFocusView(View):
 
 class SustainabilityInitiativeView(View):
     def get(self, request):
-        logo = ContactUsModel.objects.all().first()
-        data = SustainabilityInitiativeModel.objects.all().first()
-        return render(request, 'sustainability/index.html', context={'logo': logo, 'data': data})
+        data = HomeModel.objects.all().first()
+        sustainability = SustainabilityInitiativeModel.objects.all().first()
+        add_sustainability = AddSustainabilityInitiativeModel.objects.all()
+        context = {'data': data,
+                   'sustainability': sustainability,
+                   'add_sustainability': add_sustainability}
+        return render(request, 'sustainability/index.html', context=context)
 
 
 class WhatWeDoView(View):
