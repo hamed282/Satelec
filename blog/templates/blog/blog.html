@@ -31,7 +31,7 @@
                                     </div>
                                     <div class="c-blog-2-info">
                                         <h5 class="c-blog-2-info-category"><a href="#">{{ blog.category }}</a></h5>
-                                        <h3 class="c-blog-2-info-title"><a href="{% url 'home:blog_item' blog.slug %}">{{ blog.title }}</a></h3>
+                                        <h3 class="c-blog-2-info-title"><a href="{% url 'blog:blog_item' blog.slug %}">{{ blog.title }}</a></h3>
                                         <ul class="c-blog-2-info-meta">
                                             <li class="c-blog-2-info-meta-item">{{ blog.updated }}</li>
                                             <li class="c-blog-2-info-meta-item">By {{ blog.author }}</li>
