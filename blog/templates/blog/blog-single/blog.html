@@ -64,13 +64,13 @@
                                 <div class="c-sidebar-1-recentposts">
                                     <h3 class="c-sidebar-1-widget-title">Recent Posts</h3>
                                     <ul>
-                                        {% for blog in blogs %}
-                                            <li>
-                                                <h5><a href="#">{{ blog.title }}</a></h5>
-                                                <p>{{ blog.description }}</p>
-                                                <h6><a href="#">{{ blog.author }}</a> {{ blog.updated }}</h6>
-                                            </li>
-                                        {% endfor %}
+                                    {% for blog in blogs %}
+                                        <li>
+                                        <h5><a href="{% url 'blog:blog_item' blog.slug %}">{{ blog.title }}</a></h5>
+                                        <p>{{ blog.description }}</p>
+                                        <h6>{{ blog.author }}</a> {{ blog.updated }}</h6>
+                                        </li>
+                                    {% endfor %}
 
                                     </ul>
                                 </div>
