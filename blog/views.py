@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views import View
-from .models import BlogModel, BlogCategoryModel, CommentBlogModel
+from .models import BlogModel, BlogCategoryModel
 
 
 class BlogView(View):

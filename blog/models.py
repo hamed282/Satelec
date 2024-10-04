@@ -18,16 +18,3 @@ class BlogModel(models.Model):
     slug = models.SlugField(unique=True)
     created = models.DateField(auto_now_add=True)
     updated = models.DateField(auto_now=True)
-
-
-class CommentBlogModel(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='usercomment')
-    blog = models.ForeignKey(BlogModel, on_delete=models.CASCADE, related_name='blogcomment')
-    reply = models.ForeignKey('self', on_delete=models.CASCADE, related_name='replycomment', blank=True, null=True)
-    is_reply = models.BooleanField(default=False)
-    body = models.TextField(max_length=512)
-    is_active = models.BooleanField(default=False)
-    created = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return f'{self.user}'
