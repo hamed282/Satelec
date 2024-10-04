@@ -254,13 +254,61 @@ class AddWhatWeDoModel(models.Model):
         verbose_name_plural = 'What We Do Items'
 
 
-class WhatWeDoItemModel(models.Model):
+class ElectricalEquipmentModel(models.Model):
     title = models.CharField(max_length=64)
     description = models.TextField()
     image = models.ImageField(upload_to='img/what-we-do')
+    image_alt = models.CharField(max_length=64)
     body = models.TextField()
-    slug = models.SlugField()
 
     class Meta:
-        verbose_name = 'What We Do SubMenu'
-        verbose_name_plural = 'What We Do SubMenu'
+        verbose_name = 'Electrical Equipment Page'
+        verbose_name_plural = 'Electrical Equipment Page'
+
+
+class SolarSystemModel(models.Model):
+    title = models.CharField(max_length=64)
+    description = models.TextField()
+    image = models.ImageField(upload_to='img/what-we-do')
+    image_alt = models.CharField(max_length=64)
+    body = models.TextField()
+
+    class Meta:
+        verbose_name = 'Solar System Page'
+        verbose_name_plural = 'Solar System Page'
+
+
+class HeavyMachineryModel(models.Model):
+    title = models.CharField(max_length=64)
+    description = models.TextField()
+    image = models.ImageField(upload_to='img/what-we-do')
+    image_alt = models.CharField(max_length=64)
+    body = models.TextField()
+
+    class Meta:
+        verbose_name = 'Heavy Machinery Page'
+        verbose_name_plural = 'Heavy Machinery Page'
+
+
+class CommoditiesTradingModel(models.Model):
+    title = models.CharField(max_length=64)
+    description = models.TextField()
+    image = models.ImageField(upload_to='img/what-we-do')
+    image_alt = models.CharField(max_length=64)
+    body = models.TextField()
+
+    class Meta:
+        verbose_name = 'Commodities Trading Page'
+        verbose_name_plural = 'Commodities Trading Page'
+
+
+class HealthcareProductModel(models.Model):
+    title = models.CharField(max_length=64)
+    description = models.TextField()
+    image = models.ImageField(upload_to='img/what-we-do')
+    image_alt = models.CharField(max_length=64)
+    body = models.TextField()
+
+    class Meta:
+        verbose_name = 'Healthcare Product Page'
+        verbose_name_plural = 'Healthcare Product Page'

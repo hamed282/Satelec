@@ -6,8 +6,8 @@
         <article class="page-post-1">
             <!-- Post Header -->
             <div class="page-post-1-header">
-                <h1 class="u-text-title">Cursor Corporate Identity</h1>
-                <p class="u-text-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tempor congue <br>aliquam. Vivamus non libero tellus. Praesent vestibulum mauris quis mi <br>aliquam vitae sodales justo blandit.</p>
+                <h1 class="u-text-title">{{ content.title }}</h1>
+                <p class="u-text-lead">{{ content.description }}</p>
             </div>
             <!-- Post Header End -->
 
@@ -15,13 +15,13 @@
             <div class="page-post-1-body">
                 <!-- Post Media -->
                 <div class="page-post-1-media">
-                    <img src="assets/img/portfolio-4-1000x500.jpg" alt="Post Title">
+                    <img src="{{ content.image.url }}" alt="{{ content.image_alt}}">
                 </div>
                 <!-- Post Media End -->
 
                 <!-- Post Content -->
                 <div class="page-post-1-content">
-                    {{ data.body }}
+                    {{ content.body }}
                 </div>
                 <!-- Post Content End -->
 

@@ -4,7 +4,8 @@ from .models import (AddAboutGalleryModel, HomeModel, AddServiceModel,
                      AddTestimonialModel, AddClientModel, ContactUsModel,
                      AboutUsPageModel, MissionAndVisionModel, SustainabilityInitiativeModel, CustomerCentricFocusModel,
                      CommitmentModel, ContactUsPageModel, AddCommitmentModel, AddCustomerCentricFocusModel,
-                     AddSustainabilityInitiativeModel, WhatWeDoModel, AddWhatWeDoModel)
+                     AddSustainabilityInitiativeModel, WhatWeDoModel, AddWhatWeDoModel, SolarSystemModel,
+                     HealthcareProductModel, HeavyMachineryModel, ElectricalEquipmentModel, CommoditiesTradingModel)
 from blog.models import BlogModel as Blogs
 
 
@@ -109,24 +110,44 @@ class WhatWeDoView(View):
 
 class ElectricalEquipmentView(View):
     def get(self, request):
-        return render(request, 'electrical-equipment/index.html')
+        data = HomeModel.objects.all().first()
+        content = ElectricalEquipmentModel.objects.all().first()
+        context = {'data': data,
+                   'content': content}
+        return render(request, 'what-we-do-item/index.html', context=context)
 
 
 class SolarSystemView(View):
     def get(self, request):
-        return render(request, 'solar-systems/index.html')
+        data = HomeModel.objects.all().first()
+        content = SolarSystemModel.objects.all().first()
+        context = {'data': data,
+                   'content': content}
+        return render(request, 'what-we-do-item/index.html', context=context)
 
 
 class HeavyMachineryView(View):
     def get(self, request):
-        return render(request, 'heavy-machineries/index.html')
+        data = HomeModel.objects.all().first()
+        content = HeavyMachineryModel.objects.all().first()
+        context = {'data': data,
+                   'content': content}
+        return render(request, 'what-we-do-item/index.html', context=context)
 
 
 class CommoditiesTradingView(View):
     def get(self, request):
-        return render(request, 'commodities/index.html')
+        data = HomeModel.objects.all().first()
+        content = CommoditiesTradingModel.objects.all().first()
+        context = {'data': data,
+                   'content': content}
+        return render(request, 'what-we-do-item/index.html', context=context)
 
 
 class HealthcareProductView(View):
     def get(self, request):
-        return render(request, 'healthcare-products/index.html')
+        data = HomeModel.objects.all().first()
+        content = HealthcareProductModel.objects.all().first()
+        context = {'data': data,
+                   'content': content}
+        return render(request, 'what-we-do-item/index.html', context=context)

@@ -1,10 +1,11 @@
 from django.contrib import admin
 from .models import (AddAboutGalleryModel, HomeModel,
                      AddTestimonialModel, AddClientModel, ContactUsModel,
-                     AboutUsPageModel, WhatWeDoItemModel, CommitmentModel, AddCommitmentModel,
+                     AboutUsPageModel, CommitmentModel, AddCommitmentModel,
                      SustainabilityInitiativeModel, AddCustomerCentricFocusModel, AddSustainabilityInitiativeModel,
                      CustomerCentricFocusModel, WhatWeDoModel, AddWhatWeDoModel, AddServiceModel, ContactUsPageModel,
-                     MissionAndVisionModel)
+                     MissionAndVisionModel, ElectricalEquipmentModel, HeavyMachineryModel, HealthcareProductModel,
+                     SolarSystemModel, CommoditiesTradingModel)
 
 
 class AboutItemInline(admin.StackedInline):
@@ -103,4 +104,8 @@ admin.site.register(CommitmentModel, CommitmentAdmin)
 admin.site.register(SustainabilityInitiativeModel, AddSustainabilityInitiativeAdmin)
 admin.site.register(CustomerCentricFocusModel, AddCustomerCentricFocusAdmin)
 admin.site.register(WhatWeDoModel, AddWhatWeDoAdmin)
-admin.site.register(WhatWeDoItemModel)
+admin.site.register(SolarSystemModel)
+admin.site.register(CommoditiesTradingModel)
+admin.site.register(ElectricalEquipmentModel)
+admin.site.register(HealthcareProductModel)
+admin.site.register(HeavyMachineryModel)

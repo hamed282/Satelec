@@ -16,12 +16,12 @@ urlpatterns = [
 
     # What we do
     path('what-we-do/', views.WhatWeDoView.as_view(), name='what_we_do'),
-    path('what-we-do/<slug:item_slug>/', views.WhatWeDoView.as_view(), name='what_we_do_item'),
-    # path('electrical_equipments/', views.ElectricalEquipmentView.as_view(), name='electrical_equipments'),
-    # path('solar_systems/', views.SolarSystemView.as_view(), name='solar_systems'),
-    # path('heavy_machineries/', views.HeavyMachineryView.as_view(), name='heavy_machineries'),
-    # path('commodities_trading/', views.CommoditiesTradingView.as_view(), name='commodities_trading'),
-    # path('healthcare_products/', views.HealthcareProductView.as_view(), name='healthcare_products'),
+    # path('what-we-do/<slug:item_slug>/', views.WhatWeDoItemView.as_view(), name='what_we_do_item'),
+    path('electrical_equipments/', views.ElectricalEquipmentView.as_view(), name='electrical_equipments'),
+    path('solar_systems/', views.SolarSystemView.as_view(), name='solar_systems'),
+    path('heavy_machineries/', views.HeavyMachineryView.as_view(), name='heavy_machineries'),
+    path('commodities_trading/', views.CommoditiesTradingView.as_view(), name='commodities_trading'),
+    path('healthcare_products/', views.HealthcareProductView.as_view(), name='healthcare_products'),
 
     # Contact Us
     path('contactus/', views.ContactUsView.as_view(), name='contactus'),
