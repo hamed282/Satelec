@@ -37,7 +37,7 @@
                                             <li class="c-blog-2-info-meta-item">By {{ blog.author }}</li>
                                         </ul>
                                         <div class="c-blog-2-info-summary">
-                                            {{ blog.body }}
+                                            {{ blog.description }}
                                         </div>
                                         <div class="c-blog-2-info-link"><a href="{% url 'blog:blog_item' blog.slug %}" class="c-link-1">Read more <span class="c-link-1-icon -right ion-android-arrow-forward"></span></a></div>
                                     </div>
@@ -82,27 +82,15 @@
             <div class="col-lg-4">
                 <!-- Blog Sidebar -->
                 <div class="c-sidebar-1">
-                    <!-- Sidebar Search -->
-                    <div class="c-sidebar-1-widget">
-                        <div class="c-sidebar-1-search">
-                            <form class="c-sidebar-1-search-form">
-                                <input class="c-sidebar-1-search-field" type="text" placeholder="Search for ...">
-                                <button class="c-sidebar-1-search-button" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-                            </form>
-                        </div>
-                    </div>
-                    <!-- Sidebar Search End -->
+
                     <!-- Sidebar Categories -->
                     <div class="c-sidebar-1-widget">
                         <nav class="c-sidebar-1-nav">
                             <h3 class="c-sidebar-1-widget-title">Categories</h3>
                             <ul>
-                                <li><a href="#">Creative</a></li>
-                                <li><a href="#">Design</a></li>
-                                <li><a href="#">Marketing</a></li>
-                                <li><a href="#">Digital</a></li>
-                                <li><a href="#">Graphic</a></li>
-                                <li><a href="#">Community</a></li>
+                                {% for category in categories %}
+                                    <li><a href="{% url 'blog:blog_category' category.slug %}">{{ category.category }}</a></li>
+                                {% endfor %}
                             </ul>
                         </nav>
                     </div>
@@ -112,66 +100,18 @@
                         <div class="c-sidebar-1-recentposts">
                             <h3 class="c-sidebar-1-widget-title">Recent Posts</h3>
                             <ul>
-                                <li>
-                                    <h5><a href="#">Playing With Number</a></h5>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit fringilla sollicitudin.</p>
-                                    <h6><a href="#">Bobbie Ryan</a> May 12, 2016 18:30</h6>
+                                {% for blog in blogs %}
+                                    <li>
+                                    <h5><a href="{% url 'blog:blog_item' blog.slug %}">{{ blog.title }}</a></h5>
+                                    <p>{{ blog.description }}</p>
+                                    <h6>{{ blog.author }}</a> {{ blog.updated }}</h6>
                                 </li>
-                                <li>
-                                    <h5><a href="#">Cursor Corporate Identity</a></h5>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit fringilla sollicitudin.</p>
-                                    <h6><a href="#">Bobbie Ryan</a> May 12, 2016 18:30</h6>
-                                </li>
-                                <li>
-                                    <h5><a href="#">Knock Knock Global</a></h5>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit fringilla sollicitudin.</p>
-                                    <h6><a href="#">Bobbie Ryan</a> May 12, 2016 18:30</h6>
-                                </li>
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>
                     <!-- Sidebar Recent Posts End -->
-                    <!-- Sidebar Tags Cloud -->
-                    <div class="c-sidebar-1-widget">
-                        <div class="c-sidebar-1-tags">
-                            <h3 class="c-sidebar-1-widget-title">Tags Cloud</h3>
-                            <ul>
-                                <li><a href="#">CORPORATE</a></li>
-                                <li><a href="#">MARKETING</a></li>
-                                <li><a href="#">GRAPHIC</a></li>
-                                <li><a href="#">CREATIVE</a></li>
-                                <li><a href="#">DIGITAL</a></li>
-                                <li><a href="#">GRAPHIC DESIGN</a></li>
-                                <li><a href="#">PERSONAL</a></li>
-                                <li><a href="#">EVENTS</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- Sidebar Tags Cloud End -->
-                    <!-- Sidebar Recent Comments -->
-                    <div class="c-sidebar-1-widget">
-                        <div class="c-sidebar-1-recentcomments">
-                            <h3 class="c-sidebar-1-widget-title">Recent Comments</h3>
-                            <ul>
-                                <li>
-                                    <h5><a href="#">Playing With Number</a></h5>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit fringilla sollicitudin.</p>
-                                    <h6><a href="#">Bobbie Ryan</a> May 12, 2016 18:30</h6>
-                                </li>
-                                <li>
-                                    <h5><a href="#">Cursor Corporate Identity</a></h5>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit fringilla sollicitudin.</p>
-                                    <h6><a href="#">Bobbie Ryan</a> May 12, 2016 18:30</h6>
-                                </li>
-                                <li>
-                                    <h5><a href="#">Knock Knock Global</a></h5>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit fringilla sollicitudin.</p>
-                                    <h6><a href="#">Bobbie Ryan</a> May 12, 2016 18:30</h6>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- Sidebar Recent Comments End -->
+
                 </div>
                 <!-- Blog Sidebar End -->
             </div>
