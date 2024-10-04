@@ -188,7 +188,7 @@ class CustomerCentricFocusModel(models.Model):
     banner = models.ImageField(upload_to='img/customer_centric')
     title = models.CharField(max_length=128)
     subtitle = models.CharField(max_length=128)
-    description = models.CharField(max_length=256)
+    description = models.TextField(max_length=256)
 
     class Meta:
         verbose_name = 'Customer Centric Focus Page'
@@ -198,7 +198,7 @@ class CustomerCentricFocusModel(models.Model):
 class AddCustomerCentricFocusModel(models.Model):
     commitment = models.ForeignKey(CustomerCentricFocusModel, on_delete=models.CASCADE)
     title = models.CharField(max_length=128)
-    description = models.CharField(max_length=256)
+    description = models.TextField(max_length=256)
     link = models.CharField(max_length=512)
     icon_class = models.CharField(max_length=128)
 
@@ -211,7 +211,7 @@ class SustainabilityInitiativeModel(models.Model):
     banner = models.ImageField(upload_to='img/sustainability')
     title = models.CharField(max_length=128)
     subtitle = models.CharField(max_length=128)
-    description = models.CharField(max_length=256)
+    description = models.TextField(max_length=256)
 
     class Meta:
         verbose_name = 'Sustainability Initiative Page'
@@ -221,7 +221,7 @@ class SustainabilityInitiativeModel(models.Model):
 class AddSustainabilityInitiativeModel(models.Model):
     commitment = models.ForeignKey(SustainabilityInitiativeModel, on_delete=models.CASCADE)
     title = models.CharField(max_length=128)
-    description = models.CharField(max_length=256)
+    description = models.TextField(max_length=256)
     link = models.CharField(max_length=512)
     icon_class = models.CharField(max_length=128)
 
@@ -234,7 +234,7 @@ class WhatWeDoModel(models.Model):
     banner = models.ImageField(upload_to='img/what-we-do')
     title = models.CharField(max_length=128)
     subtitle = models.CharField(max_length=128)
-    description = models.CharField(max_length=256)
+    description = models.TextField(max_length=256)
 
     class Meta:
         verbose_name = 'What We Do Page'
@@ -245,7 +245,7 @@ class AddWhatWeDoModel(models.Model):
     commitment = models.ForeignKey(WhatWeDoModel, on_delete=models.CASCADE)
     title = models.CharField(max_length=128)
     subtitle = models.CharField(max_length=128)
-    description = models.CharField(max_length=256)
+    description = models.TextField(max_length=256)
     link = models.CharField(max_length=512)
     image = models.ImageField(upload_to='img/what-we-do')
 
