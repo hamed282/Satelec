@@ -29,8 +29,10 @@ class HomeView(View):
 class AboutUsView(View):
     def get(self, request):
         data = HomeModel.objects.all().first()
-        context = {'data': data}
-        return render(request, 'aboutus/index.html', context={'data': data})
+        about = AboutUsPageModel.objects.all()
+        context = {'data': data,
+                   'about': about}
+        return render(request, 'aboutus/index.html', context=context)
 
 
 class ContactUsView(View):
