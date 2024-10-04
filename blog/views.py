@@ -29,5 +29,11 @@ class BlogSingleView(View):
 
 
 class BlogCategoryView(View):
-    def get(self, request):
-        return render(request, '')
+    def get(self, request, category_slug):
+        data = HomeModel.objects.all().first()
+        blogs = BlogModel.objects.filter(category=BlogCategoryModel.objects.get(slug=category_slug))
+        categories = BlogCategoryModel.objects.all()
+        context = {'data': data,
+                   'blogs': blogs,
+                   'categories': categories}
+        return render(request, 'blog/index.html', context=context)
