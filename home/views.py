@@ -66,7 +66,7 @@ class CommitmentView(View):
     def get(self, request):
         data = HomeModel.objects.all().first()
         commitment = CommitmentModel.objects.all().first()
-        add_commitment = AddCommitmentModel.objects.all().first()
+        add_commitment = AddCommitmentModel.objects.all()
         context = {'data': data,
                    'commitment': commitment,
                    'add_commitment': add_commitment}
