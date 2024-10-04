@@ -4,7 +4,7 @@ from .models import (AddAboutGalleryModel, HomeModel, AddServiceModel,
                      AddTestimonialModel, AddClientModel, ContactUsModel,
                      AboutUsPageModel, MissionAndVisionModel, SustainabilityInitiativeModel, CustomerCentricFocusModel,
                      CommitmentModel, ContactUsPageModel, AddCommitmentModel, AddCustomerCentricFocusModel,
-                     AddSustainabilityInitiativeModel)
+                     AddSustainabilityInitiativeModel, WhatWeDoModel, AddWhatWeDoModel)
 from blog.models import BlogModel as Blogs
 
 
@@ -98,9 +98,13 @@ class SustainabilityInitiativeView(View):
 
 class WhatWeDoView(View):
     def get(self, request):
-        logo = ContactUsModel.objects.all().first()
-        data = SustainabilityInitiativeModel.objects.all().first()
-        return render(request, 'what-we-do/index.html', context={'logo': logo, 'data': data})
+        data = HomeModel.objects.all().first()
+        what_we_do = WhatWeDoModel.objects.all().first()
+        add_what_we_do = AddWhatWeDoModel.objects.all()
+        context = {'data': data,
+                   'what_we_do': what_we_do,
+                   'add_what_we_do': add_what_we_do}
+        return render(request, 'what-we-do/index.html', context=context)
 
 
 class ElectricalEquipmentView(View):
