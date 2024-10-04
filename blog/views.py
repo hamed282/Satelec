@@ -20,12 +20,9 @@ class BlogSingleView(View):
         blogs = BlogModel.objects.all()[:3]
         blog = BlogModel.objects.get(slug=blog_slug)
         categories = BlogCategoryModel.objects.all()
-        comments = CommentBlogModel.objects.filter(blog=blog, is_reply=False, is_active=True)
-        replies = CommentBlogModel.objects.filter(blog=blog, is_reply=True, is_active=True)
         return render(request, 'blog/blog-single/index.html', context={'blog': blog,
                                                                        'categories': categories,
-                                                                       'blogs': blogs,
-                                                                       'comments': comments, 'replies': replies})
+                                                                       'blogs': blogs})
 
 
 class BlogCategoryView(View):
