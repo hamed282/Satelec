@@ -26,21 +26,20 @@
                                 <div class="c-blog-2-item-inner">
                                     <div class="c-blog-2-media">
                                         <div class="c-blog-2-media-photo">
-                                            <a class="c-blog-2-media-link" href="#"><img class="c-blog-2-media-image" src="{{ blog.cover.url }}" alt="{{ blog.alt_cover }}"></a>
+                                            <a class="c-blog-2-media-link"><img class="c-blog-2-media-image" src="{{ blog.cover.url }}" alt="{{ blog.alt_cover }}"></a>
                                         </div>
                                     </div>
                                     <div class="c-blog-2-info">
-                                        <h5 class="c-blog-2-info-category"><a href="#">Design</a></h5>
-                                        <h3 class="c-blog-2-info-title"><a href="#">Playing With Number :Image</a></h3>
+                                        <h5 class="c-blog-2-info-category"><a href="#">{{ blog.category }}</a></h5>
+                                        <h3 class="c-blog-2-info-title"><a href="{% url 'home:blog_item' blog.slug %}">{{ blog.title }}</a></h3>
                                         <ul class="c-blog-2-info-meta">
-                                            <li class="c-blog-2-info-meta-item">April 16, 2016</li>
-                                            <li class="c-blog-2-info-meta-item"><a class="c-blog-2-info-meta-link" href="#">0 Comments</a></li>
-                                            <li class="c-blog-2-info-meta-item">By <a class="c-blog-2-info-meta-link" href="#">Bobbie Ryan</a></li>
+                                            <li class="c-blog-2-info-meta-item">{{ blog.updated }}</li>
+                                            <li class="c-blog-2-info-meta-item">By {{ blog.author }}</li>
                                         </ul>
                                         <div class="c-blog-2-info-summary">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id est tortor.</p>
+                                            {{ blog.body }}
                                         </div>
-                                        <div class="c-blog-2-info-link"><a href="#" class="c-link-1">Read more <span class="c-link-1-icon -right ion-android-arrow-forward"></span></a></div>
+                                        <div class="c-blog-2-info-link"><a href="{% url 'home:blog_item' blog.slug %}" class="c-link-1">Read more <span class="c-link-1-icon -right ion-android-arrow-forward"></span></a></div>
                                     </div>
                                 </div>
                             </article>
