@@ -29,7 +29,7 @@ class HomeView(View):
 class AboutUsView(View):
     def get(self, request):
         data = HomeModel.objects.all().first()
-        about = AboutUsPageModel.objects.all()
+        about = AboutUsPageModel.objects.all().first()
         context = {'data': data,
                    'about': about}
         return render(request, 'aboutus/index.html', context=context)
