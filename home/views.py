@@ -55,9 +55,11 @@ class ContactUsView(View):
 
 class MissionVisionView(View):
     def get(self, request):
-        logo = ContactUsModel.objects.all().first()
-        data = MissionAndVisionModel.objects.all().first()
-        return render(request, 'mission_vision/index.html', context={'logo': logo, 'data': data})
+        data = HomeModel.objects.all().first()
+        mission_vision = MissionAndVisionModel.objects.all().first()
+        context = {'data': data,
+                   'mission_vision': mission_vision}
+        return render(request, 'mission_vision/index.html', context=context)
 
 
 class CommitmentView(View):
