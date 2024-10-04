@@ -164,8 +164,8 @@ class MissionAndVisionModel(models.Model):
 class CommitmentModel(models.Model):
     banner = models.ImageField(upload_to='img/commitment')
     title = models.CharField(max_length=128)
-    subtitle = models.TextField(max_length=128)
-    description = models.CharField(max_length=256)
+    subtitle = models.CharField(max_length=128)
+    description = models.TextField(max_length=256)
 
     class Meta:
         verbose_name = 'Commitment To Quality Page'
