@@ -43,7 +43,7 @@ class HomeModel(models.Model):
         if not self.pk and HomeModel.objects.exists():
             # This below line will render error by breaking page, you will see
             raise ValidationError(
-                "There can be only one Video you can not add another"
+                "There can be only one Object you can not add another"
             )
 
 
@@ -107,6 +107,13 @@ class ContactUsPageModel(models.Model):
         verbose_name = 'ContactUs Page'
         verbose_name_plural = 'ContactUs Page'
 
+    def clean(self):
+        if not self.pk and ContactUsPageModel.objects.exists():
+            # This below line will render error by breaking page, you will see
+            raise ValidationError(
+                "There can be only one Object you can not add another"
+            )
+
 
 class ContactUsModel(models.Model):
     name = models.CharField(max_length=32)
@@ -140,6 +147,13 @@ class AboutUsPageModel(models.Model):
         verbose_name = 'AboutUs Page'
         verbose_name_plural = 'AboutUs Page'
 
+    def clean(self):
+        if not self.pk and AboutUsPageModel.objects.exists():
+            # This below line will render error by breaking page, you will see
+            raise ValidationError(
+                "There can be only one Object you can not add another"
+            )
+
 
 class MissionAndVisionModel(models.Model):
     banner = models.ImageField(upload_to='img/mission-vision')
@@ -160,6 +174,13 @@ class MissionAndVisionModel(models.Model):
         verbose_name = 'Mission And Vision Page'
         verbose_name_plural = 'Mission And Vision Page'
 
+    def clean(self):
+        if not self.pk and MissionAndVisionModel.objects.exists():
+            # This below line will render error by breaking page, you will see
+            raise ValidationError(
+                "There can be only one Object you can not add another"
+            )
+
 
 class CommitmentModel(models.Model):
     banner = models.ImageField(upload_to='img/commitment')
@@ -170,6 +191,13 @@ class CommitmentModel(models.Model):
     class Meta:
         verbose_name = 'Commitment To Quality Page'
         verbose_name_plural = 'Commitment To Quality Page'
+
+    def clean(self):
+        if not self.pk and CommitmentModel.objects.exists():
+            # This below line will render error by breaking page, you will see
+            raise ValidationError(
+                "There can be only one Object you can not add another"
+            )
 
 
 class AddCommitmentModel(models.Model):
@@ -194,9 +222,16 @@ class CustomerCentricFocusModel(models.Model):
         verbose_name = 'Customer Centric Focus Page'
         verbose_name_plural = 'Customer Centric Focus Page'
 
+    def clean(self):
+        if not self.pk and CustomerCentricFocusModel.objects.exists():
+            # This below line will render error by breaking page, you will see
+            raise ValidationError(
+                "There can be only one Object you can not add another"
+            )
+
 
 class AddCustomerCentricFocusModel(models.Model):
-    commitment = models.ForeignKey(CustomerCentricFocusModel, on_delete=models.CASCADE)
+    customer = models.ForeignKey(CustomerCentricFocusModel, on_delete=models.CASCADE)
     title = models.CharField(max_length=128)
     description = models.TextField(max_length=256)
     link = models.CharField(max_length=512)
@@ -217,9 +252,16 @@ class SustainabilityInitiativeModel(models.Model):
         verbose_name = 'Sustainability Initiative Page'
         verbose_name_plural = 'Sustainability Initiative Page'
 
+    def clean(self):
+        if not self.pk and SustainabilityInitiativeModel.objects.exists():
+            # This below line will render error by breaking page, you will see
+            raise ValidationError(
+                "There can be only one Object you can not add another"
+            )
+
 
 class AddSustainabilityInitiativeModel(models.Model):
-    commitment = models.ForeignKey(SustainabilityInitiativeModel, on_delete=models.CASCADE)
+    sustainability = models.ForeignKey(SustainabilityInitiativeModel, on_delete=models.CASCADE)
     title = models.CharField(max_length=128)
     description = models.TextField(max_length=256)
     link = models.CharField(max_length=512)
@@ -240,9 +282,16 @@ class WhatWeDoModel(models.Model):
         verbose_name = 'What We Do Page'
         verbose_name_plural = 'What We Do Page'
 
+    def clean(self):
+        if not self.pk and WhatWeDoModel.objects.exists():
+            # This below line will render error by breaking page, you will see
+            raise ValidationError(
+                "There can be only one Object you can not add another"
+            )
+
 
 class AddWhatWeDoModel(models.Model):
-    commitment = models.ForeignKey(WhatWeDoModel, on_delete=models.CASCADE)
+    what_we_do = models.ForeignKey(WhatWeDoModel, on_delete=models.CASCADE)
     title = models.CharField(max_length=128)
     subtitle = models.CharField(max_length=128)
     description = models.TextField(max_length=256)
@@ -265,6 +314,13 @@ class ElectricalEquipmentModel(models.Model):
         verbose_name = 'Electrical Equipment Page'
         verbose_name_plural = 'Electrical Equipment Page'
 
+    def clean(self):
+        if not self.pk and ElectricalEquipmentModel.objects.exists():
+            # This below line will render error by breaking page, you will see
+            raise ValidationError(
+                "There can be only one Object you can not add another"
+            )
+
 
 class SolarSystemModel(models.Model):
     title = models.CharField(max_length=64)
@@ -276,6 +332,13 @@ class SolarSystemModel(models.Model):
     class Meta:
         verbose_name = 'Solar System Page'
         verbose_name_plural = 'Solar System Page'
+
+    def clean(self):
+        if not self.pk and SolarSystemModel.objects.exists():
+            # This below line will render error by breaking page, you will see
+            raise ValidationError(
+                "There can be only one Object you can not add another"
+            )
 
 
 class HeavyMachineryModel(models.Model):
@@ -289,6 +352,13 @@ class HeavyMachineryModel(models.Model):
         verbose_name = 'Heavy Machinery Page'
         verbose_name_plural = 'Heavy Machinery Page'
 
+    def clean(self):
+        if not self.pk and HeavyMachineryModel.objects.exists():
+            # This below line will render error by breaking page, you will see
+            raise ValidationError(
+                "There can be only one Object you can not add another"
+            )
+
 
 class CommoditiesTradingModel(models.Model):
     title = models.CharField(max_length=64)
@@ -301,6 +371,13 @@ class CommoditiesTradingModel(models.Model):
         verbose_name = 'Commodities Trading Page'
         verbose_name_plural = 'Commodities Trading Page'
 
+    def clean(self):
+        if not self.pk and CommoditiesTradingModel.objects.exists():
+            # This below line will render error by breaking page, you will see
+            raise ValidationError(
+                "There can be only one Object you can not add another"
+            )
+
 
 class HealthcareProductModel(models.Model):
     title = models.CharField(max_length=64)
@@ -312,3 +389,10 @@ class HealthcareProductModel(models.Model):
     class Meta:
         verbose_name = 'Healthcare Product Page'
         verbose_name_plural = 'Healthcare Product Page'
+
+    def clean(self):
+        if not self.pk and HealthcareProductModel.objects.exists():
+            # This below line will render error by breaking page, you will see
+            raise ValidationError(
+                "There can be only one Object you can not add another"
+            )
