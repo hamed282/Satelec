@@ -6,13 +6,15 @@
 	<!-- Basic Page Head -->
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>{% block title %} {% endblock %}</title>
-	<meta name="description" content="Multi-Purpose HTML Template">
+	<title>{% if seo.meta_title %}{{ seo.meta_title }}{% else %}Satelec Home Page{% endif %}</title>
+	<meta name="description" content="{% if seo.meta_description %}{{ seo.meta_description }}{% else %} Satelec Home Page{% endif %}">
 	<meta name="author" content="Loco Theme - locotheme.com">
 	<meta name="keywords" content="personal, creative, portfolio, freelance, agency, craft, minimal, unique, work, projects, simple, clean, modern, masonry, blog">
 	<meta name="robots" content="{% if seo.index %}index{% else %}noindex{% endif %},{% if seo.follow %}follow{% else %}nofollow{% endif %},max-snippet:-1, max-video-preview:-1, max-image-preview:large">	<!-- Mobile Meta -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="canonical" href="{% if data.canonical %}{{ data.canonical }}{% else %}{{ request.build_absolute_uri }}{% endif %}">
+	<link rel="canonical" href="{% if seo.canonical %}{{ seo.canonical }}{% else %}{{ request.build_absolute_uri }}{% endif %}">
+	<script type="application/ld+json">"{% if seo.schema_markup %}{{ seo.schema_markup }}{% else %}{% endif %}"</script>
+
 
 	<!-- Favicons -->
 	<link rel="icon" type="image/png" href="{% static 'assets/img/favicon-16x16.png' %}" sizes="16x16">
