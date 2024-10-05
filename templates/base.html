@@ -10,7 +10,7 @@
 	<meta name="description" content="Multi-Purpose HTML Template">
 	<meta name="author" content="Loco Theme - locotheme.com">
 	<meta name="keywords" content="personal, creative, portfolio, freelance, agency, craft, minimal, unique, work, projects, simple, clean, modern, masonry, blog">
-	<meta name="robots" content="{% if data.index is defined and data.index %}index{% else %}noindex{% endif %},{% if data.follow is defined and data.follow %}follow{% else %}nofollow{% endif %},max-snippet:-1, max-video-preview:-1, max-image-preview:large">	<!-- Mobile Meta -->
+	<meta name="robots" content="{% if seo.index %}index{% else %}noindex{% endif %},{% if seo.follow %}follow{% else %}nofollow{% endif %},max-snippet:-1, max-video-preview:-1, max-image-preview:large">	<!-- Mobile Meta -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="canonical" href="{% if data.canonical %}{{ data.canonical }}{% else %}{{ request.build_absolute_uri }}{% endif %}">
 
