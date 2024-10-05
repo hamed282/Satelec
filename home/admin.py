@@ -74,7 +74,10 @@ class HomeAdmin(admin.ModelAdmin):
             'fields': ('title_blog', 'subtitle_blog', 'description_blog',),
             'classes': ('collapse',),
         }),
-
+        ('SEO Section', {
+            'fields': ('follow', 'index', 'canonical', 'meta_title', 'meta_description', 'schema_markup'),
+            'classes': ('collapse',),
+        }),
     )
     inlines = [AboutItemInline, OurServiceInline, TestimonialInline, ClientInline]
 

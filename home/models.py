@@ -23,6 +23,7 @@ class HomeModel(models.Model):
     title_testimonial = models.CharField(max_length=64)
     header_testimonial = models.CharField(max_length=512)
     image_testimonial = models.ImageField(upload_to='img/testimonial')
+    testimonial_alt = models.CharField(max_length=200)
 
     # Client Section
     title_client = models.CharField(max_length=128)
@@ -34,7 +35,14 @@ class HomeModel(models.Model):
     subtitle_blog = models.CharField(max_length=64)
     description_blog = models.TextField()
 
-    #
+    # SEO Section
+    follow = models.BooleanField(default=False)
+    index = models.BooleanField(default=False)
+    canonical = models.CharField(max_length=256, null=True, blank=True)
+    meta_title = models.CharField(max_length=60, blank=True, null=True)
+    meta_description = models.CharField(max_length=160, blank=True, null=True)
+    schema_markup = models.TextField(null=True, blank=True)
+
     class Meta:
         verbose_name = 'Home Page'
         verbose_name_plural = 'Home Page'
@@ -98,10 +106,19 @@ class ContactUsPageModel(models.Model):
     subtitle = models.CharField(max_length=64)
     description = models.TextField()
     image = models.ImageField(upload_to='img/contactus')
+    image_alt = models.CharField(max_length=200)
     map = models.CharField(max_length=512)
     address = models.CharField(max_length=64)
     phone_number = models.CharField(max_length=64)
     email = models.EmailField()
+
+    # SEO Section
+    follow = models.BooleanField(default=False)
+    index = models.BooleanField(default=False)
+    canonical = models.CharField(max_length=256, null=True, blank=True)
+    meta_title = models.CharField(max_length=60, blank=True, null=True)
+    meta_description = models.CharField(max_length=160, blank=True, null=True)
+    schema_markup = models.TextField(null=True, blank=True)
 
     class Meta:
         verbose_name = 'ContactUs Page'
@@ -130,6 +147,7 @@ class ContactUsModel(models.Model):
 
 class AboutUsPageModel(models.Model):
     banner = models.ImageField(upload_to='img/aboutus')
+    banner_alt = models.CharField(max_length=200)
     title = models.CharField(max_length=128)
     subtitle = models.CharField(max_length=128)
     description = models.TextField(max_length=256)
@@ -142,6 +160,14 @@ class AboutUsPageModel(models.Model):
     column2_title = models.CharField(max_length=128)
     column2_description = models.TextField(max_length=512)
     column2_link = models.CharField(max_length=512)
+
+    # SEO Section
+    follow = models.BooleanField(default=False)
+    index = models.BooleanField(default=False)
+    canonical = models.CharField(max_length=256, null=True, blank=True)
+    meta_title = models.CharField(max_length=60, blank=True, null=True)
+    meta_description = models.CharField(max_length=160, blank=True, null=True)
+    schema_markup = models.TextField(null=True, blank=True)
 
     class Meta:
         verbose_name = 'AboutUs Page'
@@ -157,6 +183,7 @@ class AboutUsPageModel(models.Model):
 
 class MissionAndVisionModel(models.Model):
     banner = models.ImageField(upload_to='img/mission-vision')
+    banner_alt = models.CharField(max_length=200)
     title = models.CharField(max_length=128)
     subtitle = models.CharField(max_length=128)
     description = models.CharField(max_length=256)
@@ -169,6 +196,14 @@ class MissionAndVisionModel(models.Model):
     column2_title = models.CharField(max_length=128)
     column2_description = models.TextField(max_length=512)
     column2_link = models.CharField(max_length=512)
+
+    # SEO Section
+    follow = models.BooleanField(default=False)
+    index = models.BooleanField(default=False)
+    canonical = models.CharField(max_length=256, null=True, blank=True)
+    meta_title = models.CharField(max_length=60, blank=True, null=True)
+    meta_description = models.CharField(max_length=160, blank=True, null=True)
+    schema_markup = models.TextField(null=True, blank=True)
 
     class Meta:
         verbose_name = 'Mission And Vision Page'
@@ -184,9 +219,18 @@ class MissionAndVisionModel(models.Model):
 
 class CommitmentModel(models.Model):
     banner = models.ImageField(upload_to='img/commitment')
+    banner_alt = models.CharField(max_length=200)
     title = models.CharField(max_length=128)
     subtitle = models.CharField(max_length=128)
     description = models.TextField(max_length=256)
+
+    # SEO Section
+    follow = models.BooleanField(default=False)
+    index = models.BooleanField(default=False)
+    canonical = models.CharField(max_length=256, null=True, blank=True)
+    meta_title = models.CharField(max_length=60, blank=True, null=True)
+    meta_description = models.CharField(max_length=160, blank=True, null=True)
+    schema_markup = models.TextField(null=True, blank=True)
 
     class Meta:
         verbose_name = 'Commitment To Quality Page'
@@ -214,9 +258,18 @@ class AddCommitmentModel(models.Model):
 
 class CustomerCentricFocusModel(models.Model):
     banner = models.ImageField(upload_to='img/customer_centric')
+    banner_alt = models.CharField(max_length=200)
     title = models.CharField(max_length=128)
     subtitle = models.CharField(max_length=128)
     description = models.TextField(max_length=256)
+
+    # SEO Section
+    follow = models.BooleanField(default=False)
+    index = models.BooleanField(default=False)
+    canonical = models.CharField(max_length=256, null=True, blank=True)
+    meta_title = models.CharField(max_length=60, blank=True, null=True)
+    meta_description = models.CharField(max_length=160, blank=True, null=True)
+    schema_markup = models.TextField(null=True, blank=True)
 
     class Meta:
         verbose_name = 'Customer Centric Focus Page'
@@ -244,9 +297,18 @@ class AddCustomerCentricFocusModel(models.Model):
 
 class SustainabilityInitiativeModel(models.Model):
     banner = models.ImageField(upload_to='img/sustainability')
+    banner_alt = models.CharField(max_length=200)
     title = models.CharField(max_length=128)
     subtitle = models.CharField(max_length=128)
     description = models.TextField(max_length=256)
+
+    # SEO Section
+    follow = models.BooleanField(default=False)
+    index = models.BooleanField(default=False)
+    canonical = models.CharField(max_length=256, null=True, blank=True)
+    meta_title = models.CharField(max_length=60, blank=True, null=True)
+    meta_description = models.CharField(max_length=160, blank=True, null=True)
+    schema_markup = models.TextField(null=True, blank=True)
 
     class Meta:
         verbose_name = 'Sustainability Initiative Page'
@@ -274,9 +336,18 @@ class AddSustainabilityInitiativeModel(models.Model):
 
 class WhatWeDoModel(models.Model):
     banner = models.ImageField(upload_to='img/what-we-do')
+    banner_alt = models.CharField(max_length=200)
     title = models.CharField(max_length=128)
     subtitle = models.CharField(max_length=128)
     description = models.TextField(max_length=256)
+
+    # SEO Section
+    follow = models.BooleanField(default=False)
+    index = models.BooleanField(default=False)
+    canonical = models.CharField(max_length=256, null=True, blank=True)
+    meta_title = models.CharField(max_length=60, blank=True, null=True)
+    meta_description = models.CharField(max_length=160, blank=True, null=True)
+    schema_markup = models.TextField(null=True, blank=True)
 
     class Meta:
         verbose_name = 'What We Do Page'
@@ -297,6 +368,7 @@ class AddWhatWeDoModel(models.Model):
     description = models.TextField(max_length=256)
     link = models.CharField(max_length=512)
     image = models.ImageField(upload_to='img/what-we-do')
+    image_alt = models.CharField(max_length=200)
 
     class Meta:
         verbose_name = 'What We Do Item'
@@ -309,6 +381,14 @@ class ElectricalEquipmentModel(models.Model):
     image = models.ImageField(upload_to='img/what-we-do')
     image_alt = models.CharField(max_length=64)
     body = models.TextField()
+
+    # SEO Section
+    follow = models.BooleanField(default=False)
+    index = models.BooleanField(default=False)
+    canonical = models.CharField(max_length=256, null=True, blank=True)
+    meta_title = models.CharField(max_length=60, blank=True, null=True)
+    meta_description = models.CharField(max_length=160, blank=True, null=True)
+    schema_markup = models.TextField(null=True, blank=True)
 
     class Meta:
         verbose_name = 'Electrical Equipment Page'
@@ -329,6 +409,14 @@ class SolarSystemModel(models.Model):
     image_alt = models.CharField(max_length=64)
     body = models.TextField()
 
+    # SEO Section
+    follow = models.BooleanField(default=False)
+    index = models.BooleanField(default=False)
+    canonical = models.CharField(max_length=256, null=True, blank=True)
+    meta_title = models.CharField(max_length=60, blank=True, null=True)
+    meta_description = models.CharField(max_length=160, blank=True, null=True)
+    schema_markup = models.TextField(null=True, blank=True)
+
     class Meta:
         verbose_name = 'Solar System Page'
         verbose_name_plural = 'Solar System Page'
@@ -347,6 +435,14 @@ class HeavyMachineryModel(models.Model):
     image = models.ImageField(upload_to='img/what-we-do')
     image_alt = models.CharField(max_length=64)
     body = models.TextField()
+
+    # SEO Section
+    follow = models.BooleanField(default=False)
+    index = models.BooleanField(default=False)
+    canonical = models.CharField(max_length=256, null=True, blank=True)
+    meta_title = models.CharField(max_length=60, blank=True, null=True)
+    meta_description = models.CharField(max_length=160, blank=True, null=True)
+    schema_markup = models.TextField(null=True, blank=True)
 
     class Meta:
         verbose_name = 'Heavy Machinery Page'
@@ -367,6 +463,14 @@ class CommoditiesTradingModel(models.Model):
     image_alt = models.CharField(max_length=64)
     body = models.TextField()
 
+    # SEO Section
+    follow = models.BooleanField(default=False)
+    index = models.BooleanField(default=False)
+    canonical = models.CharField(max_length=256, null=True, blank=True)
+    meta_title = models.CharField(max_length=60, blank=True, null=True)
+    meta_description = models.CharField(max_length=160, blank=True, null=True)
+    schema_markup = models.TextField(null=True, blank=True)
+
     class Meta:
         verbose_name = 'Commodities Trading Page'
         verbose_name_plural = 'Commodities Trading Page'
@@ -385,6 +489,14 @@ class HealthcareProductModel(models.Model):
     image = models.ImageField(upload_to='img/what-we-do')
     image_alt = models.CharField(max_length=64)
     body = models.TextField()
+
+    # SEO Section
+    follow = models.BooleanField(default=False)
+    index = models.BooleanField(default=False)
+    canonical = models.CharField(max_length=256, null=True, blank=True)
+    meta_title = models.CharField(max_length=60, blank=True, null=True)
+    meta_description = models.CharField(max_length=160, blank=True, null=True)
+    schema_markup = models.TextField(null=True, blank=True)
 
     class Meta:
         verbose_name = 'Healthcare Product Page'
