@@ -34,7 +34,7 @@ class AboutUsView(View):
     def get(self, request):
         data = HomeModel.objects.all().first()
         about = AboutUsPageModel.objects.all().first()
-        seo = HomeModel.objects.all().first()
+        seo = AboutUsPageModel.objects.all().first()
 
         context = {'data': data,
                    'about': about,
