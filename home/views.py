@@ -40,7 +40,9 @@ class AboutUsView(View):
 class ContactUsView(View):
     def get(self, request):
         data = HomeModel.objects.all().first()
-        context = {'data': data}
+        contact = ContactUsPageModel.objects.all().first()
+        context = {'data': data,
+                   'contact': contact}
         return render(request, 'contactus/index.html', context=context)
 
     def post(self, request):
