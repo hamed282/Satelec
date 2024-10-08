@@ -73,11 +73,11 @@ class ContactUsView(View):
 
         subject = 'Contact Us'
         message_provider = f'New Submit \n' \
-                           f'Name: {form['contact-name']} \n' \
-                           f'SurName: {form['contact-surname']} \n' \
-                           f'Email: {form['contact-email']} \n' \
-                           f'Phone Number: {form['contact-phone']} \n' \
-                           f'Message: {form['contact-message']}'
+                           f'Name: {form["contact-name"]} \n' \
+                           f'SurName: {form["contact-surname"]} \n' \
+                           f'Email: {form["contact-email"]} \n' \
+                           f'Phone Number: {form["contact-phone"]} \n' \
+                           f'Message: {form["contact-message"]}'
         email_from = settings.EMAIL_HOST_USER
         send_mail(subject, message_provider, email_from, ['hamed@healfit.ae'])
 
