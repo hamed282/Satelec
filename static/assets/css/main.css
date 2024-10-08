@@ -17223,7 +17223,7 @@ iframe:focus {
 }
 @media (min-width: 576px) {
   .c-header-1-logo img {
-    max-height: 20px;
+    max-height: 40px;
   }
 }
 @media (max-width: 575px) {

@@ -7,6 +7,8 @@ from .models import (AddAboutGalleryModel, HomeModel, AddServiceModel,
                      AddSustainabilityInitiativeModel, WhatWeDoModel, AddWhatWeDoModel, SolarSystemModel,
                      HealthcareProductModel, HeavyMachineryModel, ElectricalEquipmentModel, CommoditiesTradingModel)
 from blog.models import BlogModel as Blogs
+from django.conf import settings
+from django.core.mail import send_mail
 
 
 class HomeView(View):
@@ -54,7 +56,13 @@ class ContactUsView(View):
         return render(request, 'contactus/index.html', context=context)
 
     def post(self, request):
-        logo = ContactUsModel.objects.all().first()
+        data = HomeModel.objects.all().first()
+        contact = ContactUsPageModel.objects.all().first()
+        seo = ContactUsPageModel.objects.all().first()
+
+        context = {'data': data,
+                   'contact': contact,
+                   'seo': seo}
 
         form = request.POST
         ContactUsModel.objects.create(name=form['contact-name'],
@@ -62,7 +70,18 @@ class ContactUsView(View):
                                       email=form['contact-email'],
                                       phone_number=form['contact-phone'],
                                       message=form['contact-message'])
-        return render(request, 'contactus/index.html', context={'logo': logo})
+
+        subject = 'Contact Us'
+        message_provider = f'New Submit \n' \
+                           f'Name: {form['contact-name']} \n' \
+                           f'SurName: {form['contact-surname']} \n' \
+                           f'Email: {form['contact-email']} \n' \
+                           f'Phone Number: {form['contact-phone']} \n' \
+                           f'Message: {form['contact-message']}'
+        email_from = settings.EMAIL_HOST_USER
+        send_mail(subject, message_provider, email_from, ['hamed@healfit.ae'])
+
+        return render(request, 'contactus/index.html', context=context)
 
 
 class MissionVisionView(View):

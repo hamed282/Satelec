@@ -1,5 +1,6 @@
 from django.core.exceptions import ValidationError
 from django.db import models
+from tinymce.models import HTMLField
 
 
 class HomeModel(models.Model):
@@ -17,7 +18,7 @@ class HomeModel(models.Model):
     # Our service Section
     title_service = models.CharField(max_length=256)
     subtitle_service = models.TextField()
-    description_service = models.TextField()
+    description_service = HTMLField()
 
     # Testimonial Section
     title_testimonial = models.CharField(max_length=64)
@@ -33,7 +34,7 @@ class HomeModel(models.Model):
     # Blog Section
     title_blog = models.CharField(max_length=64)
     subtitle_blog = models.CharField(max_length=64)
-    description_blog = models.TextField()
+    description_blog = HTMLField()
 
     # SEO Section
     follow = models.BooleanField(default=False)
@@ -53,6 +54,9 @@ class HomeModel(models.Model):
             raise ValidationError(
                 "There can be only one Object you can not add another"
             )
+
+    def __str__(self):
+        return 'Home'
 
 
 class AddAboutGalleryModel(models.Model):
@@ -131,6 +135,9 @@ class ContactUsPageModel(models.Model):
                 "There can be only one Object you can not add another"
             )
 
+    def __str__(self):
+        return 'ContactUs'
+
 
 class ContactUsModel(models.Model):
     name = models.CharField(max_length=32)
@@ -144,13 +151,16 @@ class ContactUsModel(models.Model):
         verbose_name = 'ContactUs Submitted'
         verbose_name_plural = 'ContactUs Submitted'
 
+    def __str__(self):
+        return self.email
+
 
 class AboutUsPageModel(models.Model):
     banner = models.ImageField(upload_to='img/aboutus')
     banner_alt = models.CharField(max_length=200)
     title = models.CharField(max_length=128)
     subtitle = models.CharField(max_length=128)
-    description = models.TextField(max_length=256)
+    description = HTMLField()
 
     title_about = models.CharField(max_length=128)
     subtitle_about = models.CharField(max_length=128)
@@ -180,13 +190,16 @@ class AboutUsPageModel(models.Model):
                 "There can be only one Object you can not add another"
             )
 
+    def __str__(self):
+        return 'AboutUs'
+
 
 class MissionAndVisionModel(models.Model):
     banner = models.ImageField(upload_to='img/mission-vision')
     banner_alt = models.CharField(max_length=200)
     title = models.CharField(max_length=128)
     subtitle = models.CharField(max_length=128)
-    description = models.CharField(max_length=256)
+    description = HTMLField()
 
     title_about = models.CharField(max_length=128)
     subtitle_about = models.CharField(max_length=128)
@@ -216,13 +229,16 @@ class MissionAndVisionModel(models.Model):
                 "There can be only one Object you can not add another"
             )
 
+    def __str__(self):
+        return 'Mission And Vision'
+
 
 class CommitmentModel(models.Model):
     banner = models.ImageField(upload_to='img/commitment')
     banner_alt = models.CharField(max_length=200)
     title = models.CharField(max_length=128)
     subtitle = models.CharField(max_length=128)
-    description = models.TextField(max_length=256)
+    description = HTMLField()
 
     # SEO Section
     follow = models.BooleanField(default=False)
@@ -243,6 +259,9 @@ class CommitmentModel(models.Model):
                 "There can be only one Object you can not add another"
             )
 
+    def __str__(self):
+        return 'Commitment'
+
 
 class AddCommitmentModel(models.Model):
     commitment = models.ForeignKey(CommitmentModel, on_delete=models.CASCADE)
@@ -261,7 +280,7 @@ class CustomerCentricFocusModel(models.Model):
     banner_alt = models.CharField(max_length=200)
     title = models.CharField(max_length=128)
     subtitle = models.CharField(max_length=128)
-    description = models.TextField(max_length=256)
+    description = HTMLField()
 
     # SEO Section
     follow = models.BooleanField(default=False)
@@ -282,6 +301,9 @@ class CustomerCentricFocusModel(models.Model):
                 "There can be only one Object you can not add another"
             )
 
+    def __str__(self):
+        return 'Customer Centric Focus'
+
 
 class AddCustomerCentricFocusModel(models.Model):
     customer = models.ForeignKey(CustomerCentricFocusModel, on_delete=models.CASCADE)
@@ -300,7 +322,7 @@ class SustainabilityInitiativeModel(models.Model):
     banner_alt = models.CharField(max_length=200)
     title = models.CharField(max_length=128)
     subtitle = models.CharField(max_length=128)
-    description = models.TextField(max_length=256)
+    description = HTMLField()
 
     # SEO Section
     follow = models.BooleanField(default=False)
@@ -321,6 +343,9 @@ class SustainabilityInitiativeModel(models.Model):
                 "There can be only one Object you can not add another"
             )
 
+    def __str__(self):
+        return 'Sustainability Initiative'
+
 
 class AddSustainabilityInitiativeModel(models.Model):
     sustainability = models.ForeignKey(SustainabilityInitiativeModel, on_delete=models.CASCADE)
@@ -339,7 +364,7 @@ class WhatWeDoModel(models.Model):
     banner_alt = models.CharField(max_length=200)
     title = models.CharField(max_length=128)
     subtitle = models.CharField(max_length=128)
-    description = models.TextField(max_length=256)
+    description = HTMLField()
 
     # SEO Section
     follow = models.BooleanField(default=False)
@@ -359,6 +384,9 @@ class WhatWeDoModel(models.Model):
             raise ValidationError(
                 "There can be only one Object you can not add another"
             )
+
+    def __str__(self):
+        return 'What We Do'
 
 
 class AddWhatWeDoModel(models.Model):
@@ -380,7 +408,7 @@ class ElectricalEquipmentModel(models.Model):
     description = models.TextField()
     image = models.ImageField(upload_to='img/what-we-do')
     image_alt = models.CharField(max_length=64)
-    body = models.TextField()
+    body = HTMLField()
 
     # SEO Section
     follow = models.BooleanField(default=False)
@@ -401,13 +429,16 @@ class ElectricalEquipmentModel(models.Model):
                 "There can be only one Object you can not add another"
             )
 
+    def __str__(self):
+        return 'Electrical Equipment'
+
 
 class SolarSystemModel(models.Model):
     title = models.CharField(max_length=64)
     description = models.TextField()
     image = models.ImageField(upload_to='img/what-we-do')
     image_alt = models.CharField(max_length=64)
-    body = models.TextField()
+    body = HTMLField()
 
     # SEO Section
     follow = models.BooleanField(default=False)
@@ -428,13 +459,16 @@ class SolarSystemModel(models.Model):
                 "There can be only one Object you can not add another"
             )
 
+    def __str__(self):
+        return 'Solar System'
+
 
 class HeavyMachineryModel(models.Model):
     title = models.CharField(max_length=64)
     description = models.TextField()
     image = models.ImageField(upload_to='img/what-we-do')
     image_alt = models.CharField(max_length=64)
-    body = models.TextField()
+    body = HTMLField()
 
     # SEO Section
     follow = models.BooleanField(default=False)
@@ -455,13 +489,16 @@ class HeavyMachineryModel(models.Model):
                 "There can be only one Object you can not add another"
             )
 
+    def __str__(self):
+        return 'Heavy Machinery'
+
 
 class CommoditiesTradingModel(models.Model):
     title = models.CharField(max_length=64)
     description = models.TextField()
     image = models.ImageField(upload_to='img/what-we-do')
     image_alt = models.CharField(max_length=64)
-    body = models.TextField()
+    body = HTMLField()
 
     # SEO Section
     follow = models.BooleanField(default=False)
@@ -482,13 +519,16 @@ class CommoditiesTradingModel(models.Model):
                 "There can be only one Object you can not add another"
             )
 
+    def __str__(self):
+        return 'Commodities Trading'
+
 
 class HealthcareProductModel(models.Model):
     title = models.CharField(max_length=64)
     description = models.TextField()
     image = models.ImageField(upload_to='img/what-we-do')
     image_alt = models.CharField(max_length=64)
-    body = models.TextField()
+    body = HTMLField()
 
     # SEO Section
     follow = models.BooleanField(default=False)
@@ -508,3 +548,6 @@ class HealthcareProductModel(models.Model):
             raise ValidationError(
                 "There can be only one Object you can not add another"
             )
+
+    def __str__(self):
+        return 'Healthcare Product'

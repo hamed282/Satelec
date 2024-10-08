@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User
+from tinymce.models import HTMLField
 from django.db import models
 
 
@@ -17,6 +17,10 @@ class BlogCategoryModel(models.Model):
     def __str__(self):
         return self.category
 
+    class Meta:
+        verbose_name = 'Blog Category'
+        verbose_name_plural = 'Blog Categories'
+
 
 class BlogModel(models.Model):
     category = models.ForeignKey(BlogCategoryModel, on_delete=models.CASCADE)
@@ -25,7 +29,7 @@ class BlogModel(models.Model):
     cover = models.ImageField(upload_to='img/blog/cover/')
     alt_cover = models.CharField(max_length=64)
     author = models.CharField(max_length=32)
-    body = models.TextField()
+    body = HTMLField()
     slug = models.SlugField(unique=True)
     created = models.DateField(auto_now_add=True)
     updated = models.DateField(auto_now=True)
@@ -40,3 +44,7 @@ class BlogModel(models.Model):
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        verbose_name = 'Blog'
+        verbose_name_plural = 'Blogs'
