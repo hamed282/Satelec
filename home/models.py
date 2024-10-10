@@ -68,6 +68,9 @@ class AddAboutGalleryModel(models.Model):
         verbose_name = 'About Item'
         verbose_name_plural = 'About Items'
 
+    def __str__(self):
+        return 'About'
+
 
 class AddServiceModel(models.Model):
     service = models.ForeignKey(HomeModel, on_delete=models.CASCADE)
@@ -81,6 +84,9 @@ class AddServiceModel(models.Model):
         verbose_name = 'Service Item'
         verbose_name_plural = 'Service Items'
 
+    def __str__(self):
+        return f'{self.title}'
+
 
 class AddTestimonialModel(models.Model):
     testimonial = models.ForeignKey(HomeModel, models.CASCADE)
@@ -91,6 +97,9 @@ class AddTestimonialModel(models.Model):
     class Meta:
         verbose_name = 'Testimonial Item'
         verbose_name_plural = 'Testimonial Items'
+
+    def __str__(self):
+        return f'{self.full_name}'
 
 
 class AddClientModel(models.Model):
@@ -103,6 +112,9 @@ class AddClientModel(models.Model):
     class Meta:
         verbose_name = 'Client Item'
         verbose_name_plural = 'Client    Items'
+
+    def __str__(self):
+        return 'Client'
 
 
 class ContactUsPageModel(models.Model):
@@ -166,10 +178,10 @@ class AboutUsPageModel(models.Model):
     title_about = models.CharField(max_length=128)
     subtitle_about = models.CharField(max_length=128)
     column1_title = models.CharField(max_length=128)
-    column1_description = models.TextField(max_length=512)
+    column1_description = models.TextField(max_length=2000)
     column1_link = models.CharField(max_length=512)
     column2_title = models.CharField(max_length=128)
-    column2_description = models.TextField(max_length=512)
+    column2_description = models.TextField(max_length=2000)
     column2_link = models.CharField(max_length=512)
 
     # SEO Section
@@ -205,10 +217,10 @@ class MissionAndVisionModel(models.Model):
     title_about = models.CharField(max_length=128)
     subtitle_about = models.CharField(max_length=128)
     column1_title = models.CharField(max_length=128)
-    column1_description = models.TextField(max_length=512)
+    column1_description = models.TextField(max_length=2000)
     column1_link = models.CharField(max_length=512)
     column2_title = models.CharField(max_length=128)
-    column2_description = models.TextField(max_length=512)
+    column2_description = models.TextField(max_length=2000)
     column2_link = models.CharField(max_length=512)
 
     # SEO Section
@@ -267,13 +279,16 @@ class CommitmentModel(models.Model):
 class AddCommitmentModel(models.Model):
     commitment = models.ForeignKey(CommitmentModel, on_delete=models.CASCADE)
     title = models.CharField(max_length=128)
-    description = models.TextField(max_length=256)
+    description = models.TextField(max_length=2000)
     link = models.CharField(max_length=512)
     icon_class = models.CharField(max_length=128)
 
     class Meta:
         verbose_name = 'Commitment To Quality Item'
         verbose_name_plural = 'Commitment To Quality Items'
+
+    def __str__(self):
+        return f'{self.title}'
 
 
 class CustomerCentricFocusModel(models.Model):
@@ -309,13 +324,16 @@ class CustomerCentricFocusModel(models.Model):
 class AddCustomerCentricFocusModel(models.Model):
     customer = models.ForeignKey(CustomerCentricFocusModel, on_delete=models.CASCADE)
     title = models.CharField(max_length=128)
-    description = models.TextField(max_length=256)
+    description = models.TextField(max_length=2000)
     link = models.CharField(max_length=512)
     icon_class = models.CharField(max_length=128)
 
     class Meta:
         verbose_name = 'Customer Centric Focus Item'
         verbose_name_plural = 'Customer Centric Focus Items'
+
+    def __str__(self):
+        return f'{self.title}'
 
 
 class SustainabilityInitiativeModel(models.Model):
@@ -351,13 +369,16 @@ class SustainabilityInitiativeModel(models.Model):
 class AddSustainabilityInitiativeModel(models.Model):
     sustainability = models.ForeignKey(SustainabilityInitiativeModel, on_delete=models.CASCADE)
     title = models.CharField(max_length=128)
-    description = models.TextField(max_length=256)
+    description = models.TextField(max_length=2000)
     link = models.CharField(max_length=512)
     icon_class = models.CharField(max_length=128)
 
     class Meta:
         verbose_name = 'Sustainability Initiative Item'
         verbose_name_plural = 'Sustainability Initiative Items'
+
+    def __str__(self):
+        return f'{self.title}'
 
 
 class WhatWeDoModel(models.Model):
@@ -394,7 +415,7 @@ class AddWhatWeDoModel(models.Model):
     what_we_do = models.ForeignKey(WhatWeDoModel, on_delete=models.CASCADE)
     title = models.CharField(max_length=128)
     subtitle = models.CharField(max_length=128)
-    description = models.TextField(max_length=256)
+    description = models.TextField(max_length=2000)
     link = models.CharField(max_length=512)
     image = models.ImageField(upload_to='img/what-we-do')
     image_alt = models.CharField(max_length=200)
@@ -402,6 +423,9 @@ class AddWhatWeDoModel(models.Model):
     class Meta:
         verbose_name = 'What We Do Item'
         verbose_name_plural = 'What We Do Items'
+
+    def __str__(self):
+        return f'{self.title}'
 
 
 class ElectricalEquipmentModel(models.Model):
