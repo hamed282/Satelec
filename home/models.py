@@ -180,9 +180,9 @@ class AboutUsPageModel(models.Model):
     column1_title = models.CharField(max_length=128)
     column1_description = models.TextField(max_length=2000)
     column1_link = models.CharField(max_length=512)
-    column2_title = models.CharField(max_length=128)
-    column2_description = models.TextField(max_length=2000)
-    column2_link = models.CharField(max_length=512)
+    # column2_title = models.CharField(max_length=128)
+    # column2_description = models.TextField(max_length=2000)
+    # column2_link = models.CharField(max_length=512)
 
     # SEO Section
     follow = models.BooleanField(default=False)
