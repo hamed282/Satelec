@@ -20,7 +20,7 @@ class HomeView(View):
         about_items = AddAboutGalleryModel.objects.all()
         service_items = AddServiceModel.objects.all()
         testimonial_items = AddTestimonialModel.objects.all()
-        client_items = AddClientModel.objects.all()
+        client_items = PartnerModel.objects.all()
         seo = HomeModel.objects.all().first()
         context = {'blogs': blogs,
                    'data': data,
