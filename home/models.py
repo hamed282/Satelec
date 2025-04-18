@@ -580,5 +580,58 @@ class HealthcareProductModel(models.Model):
 
 
 class PartnerModel(models.Model):
+    name = models.CharField(max_length=64)
+    description = models.TextField()
+    overview = models.TextField()
+    website = models.CharField(max_length=160)
+    video = models.FileField(upload_to='video/partner')
+    # products = models.TextField()
+    # features = models.TextField()
     slug = models.SlugField()
 
+    # SEO Section
+    follow = models.BooleanField(default=False)
+    index = models.BooleanField(default=False)
+    canonical = models.CharField(max_length=256, null=True, blank=True)
+    meta_title = models.CharField(max_length=60, blank=True, null=True)
+    meta_description = models.CharField(max_length=160, blank=True, null=True)
+    schema_markup = models.TextField(null=True, blank=True)
+
+
+class AddPartnerProductModel(models.Model):
+    product = models.CharField(max_length=64)
+    description = models.TextField()
+    partner = models.ForeignKey(PartnerModel, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = 'Partner Product'
+        verbose_name_plural = 'Partner products'
+
+    def __str__(self):
+        return f'{self.partner}'
+
+
+class AddPartnerFeatureModel(models.Model):
+    feature = models.CharField(max_length=64)
+    description = models.TextField()
+    partner = models.ForeignKey(PartnerModel, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = 'Partner Feature'
+        verbose_name_plural = 'Partner Features'
+
+    def __str__(self):
+        return f'{self.partner}'
+
+
+class AddPartnerGalleryModel(models.Model):
+    image = models.ImageField(upload_to='img/partner_gallery')
+    alt = models.CharField(max_length=250)
+    partner = models.ForeignKey(PartnerModel, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = 'Partner Feature'
+        verbose_name_plural = 'Partner Features'
+
+    def __str__(self):
+        return f'{self.partner}'

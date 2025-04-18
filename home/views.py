@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import View
 from .models import (AddAboutGalleryModel, HomeModel, AddServiceModel,
                      AddTestimonialModel, AddClientModel, ContactUsModel,
@@ -215,10 +215,10 @@ class HealthcareProductView(View):
 
 class PartnerView(View):
     def get(self, request, partner_slug):
-        print("1111111")
-        data = PartnerModel.objects.all()
-        print(data)
+        data = HomeModel.objects.all().first()
+        # print(data)
+        content = get_object_or_404(PartnerModel, slug=partner_slug)
         context = {'data': data,
-                   'content': "content",
+                   'content': content,
                    'seo': "seo"}
         return render(request, 'partners/index.html', context=context)

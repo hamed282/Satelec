@@ -5,11 +5,27 @@ from .models import (AddAboutGalleryModel, HomeModel,
                      SustainabilityInitiativeModel, AddCustomerCentricFocusModel, AddSustainabilityInitiativeModel,
                      CustomerCentricFocusModel, WhatWeDoModel, AddWhatWeDoModel, AddServiceModel, ContactUsPageModel,
                      MissionAndVisionModel, ElectricalEquipmentModel, HeavyMachineryModel, HealthcareProductModel,
-                     SolarSystemModel, CommoditiesTradingModel, PartnerModel)
+                     SolarSystemModel, CommoditiesTradingModel, PartnerModel, AddPartnerProductModel,
+                     AddPartnerFeatureModel, AddPartnerGalleryModel)
 
 
 class AboutItemInline(admin.StackedInline):
     model = AddAboutGalleryModel
+    extra = 1
+
+
+class PartnerProductInline(admin.StackedInline):
+    model = AddPartnerProductModel
+    extra = 1
+
+
+class PartnerFeatureInline(admin.StackedInline):
+    model = AddPartnerFeatureModel
+    extra = 1
+
+
+class PartnerGalleryInline(admin.StackedInline):
+    model = AddPartnerGalleryModel
     extra = 1
 
 
@@ -82,6 +98,10 @@ class HomeAdmin(admin.ModelAdmin):
     inlines = [AboutItemInline, OurServiceInline, TestimonialInline, ClientInline]
 
 
+class PartnerAmin(admin.ModelAdmin):
+    inlines = (PartnerProductInline, PartnerFeatureInline, PartnerGalleryInline)
+
+
 class CommitmentAdmin(admin.ModelAdmin):
     inlines = (CommitmentInline,)
 
@@ -112,4 +132,4 @@ admin.site.register(CommoditiesTradingModel)
 admin.site.register(ElectricalEquipmentModel)
 admin.site.register(HealthcareProductModel)
 admin.site.register(HeavyMachineryModel)
-admin.site.register(PartnerModel)
+admin.site.register(PartnerModel, PartnerAmin)
