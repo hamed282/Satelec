@@ -5,7 +5,8 @@ from .models import (AddAboutGalleryModel, HomeModel, AddServiceModel,
                      AboutUsPageModel, MissionAndVisionModel, SustainabilityInitiativeModel, CustomerCentricFocusModel,
                      CommitmentModel, ContactUsPageModel, AddCommitmentModel, AddCustomerCentricFocusModel,
                      AddSustainabilityInitiativeModel, WhatWeDoModel, AddWhatWeDoModel, SolarSystemModel,
-                     HealthcareProductModel, HeavyMachineryModel, ElectricalEquipmentModel, CommoditiesTradingModel)
+                     HealthcareProductModel, HeavyMachineryModel, ElectricalEquipmentModel, CommoditiesTradingModel,
+                     PartnerModel)
 from blog.models import BlogModel as Blogs
 from django.conf import settings
 from django.core.mail import send_mail
@@ -210,3 +211,14 @@ class HealthcareProductView(View):
                    'content': content,
                    'seo': seo}
         return render(request, 'what-we-do-item/index.html', context=context)
+
+
+class PartnerView(View):
+    def get(self, request, partner_slug):
+        print("1111111")
+        data = PartnerModel.objects.all()
+        print(data)
+        context = {'data': data,
+                   'content': "content",
+                   'seo': "seo"}
+        return render(request, 'partners/index.html', context=context)

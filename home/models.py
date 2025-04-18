@@ -108,6 +108,7 @@ class AddClientModel(models.Model):
     logo = models.ImageField(upload_to='img/clients')
     logo_alt = models.CharField(max_length=64)
     link = models.CharField(max_length=1024)
+    slug = models.SlugField()
 
     class Meta:
         verbose_name = 'Client Item'
@@ -576,3 +577,8 @@ class HealthcareProductModel(models.Model):
 
     def __str__(self):
         return 'Healthcare Product'
+
+
+class PartnerModel(models.Model):
+    slug = models.SlugField()
+

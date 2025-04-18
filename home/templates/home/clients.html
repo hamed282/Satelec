@@ -21,7 +21,7 @@
                     <!-- Logos Item -->
                     <div class="c-logos-2-item col-sm-6 col-md-4 col-lg-3">
                         <div class="c-logos-2-item-inner">
-                            <a href="{{ item.link }}" class="c-logos-2-link"><img class="c-logos-2-image" src="{{ item.logo.url }}" alt="{{ item.logo_alt }}"></a>
+                            <a href="{% url 'home:partner' item.slug %}" class="c-logos-2-link"><img class="c-logos-2-image" src="{{ item.logo.url }}" alt="{{ item.logo_alt }}"></a>
                         </div>
                     </div>
                     <!-- Logos Item End -->

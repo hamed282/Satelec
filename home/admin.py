@@ -5,7 +5,7 @@ from .models import (AddAboutGalleryModel, HomeModel,
                      SustainabilityInitiativeModel, AddCustomerCentricFocusModel, AddSustainabilityInitiativeModel,
                      CustomerCentricFocusModel, WhatWeDoModel, AddWhatWeDoModel, AddServiceModel, ContactUsPageModel,
                      MissionAndVisionModel, ElectricalEquipmentModel, HeavyMachineryModel, HealthcareProductModel,
-                     SolarSystemModel, CommoditiesTradingModel)
+                     SolarSystemModel, CommoditiesTradingModel, PartnerModel)
 
 
 class AboutItemInline(admin.StackedInline):
@@ -112,3 +112,4 @@ admin.site.register(CommoditiesTradingModel)
 admin.site.register(ElectricalEquipmentModel)
 admin.site.register(HealthcareProductModel)
 admin.site.register(HeavyMachineryModel)
+admin.site.register(PartnerModel)

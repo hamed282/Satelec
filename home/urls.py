@@ -25,5 +25,9 @@ urlpatterns = [
 
     # Contact Us
     path('contactus/', views.ContactUsView.as_view(), name='contactus'),
+
+    # Partner
+    path('partner/<slug:partner_slug>/', views.PartnerView.as_view(), name='partner'),
+
 ]
 
