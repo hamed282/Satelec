@@ -46,7 +46,7 @@
                             <li class="sub"><a href="#">Our partners</a>
                                 <ul>
                                     {% for item in client_items %}
-                                        <li><a href="#">{{ item.name }}</a>
+                                        <li><a href="{% url 'home:partner' item.slug %}">{{ item.name }}</a>
                                         </li>
                                     {% endfor %}
                                 </ul>

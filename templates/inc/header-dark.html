@@ -44,18 +44,10 @@
                         </li>
                         <li class="sub"><a href="#">Our partners</a>
                             <ul>
-                                <li><a href="#">Risen Energy</a>
-                                </li>
-                                <li><a href="#">Sineng Electric</a>
-                                </li>
-                                <li><a href="#">Trina Solar</a>
-                                </li>
-                                <li><a href="#">Kaco Energy</a>
-                                </li>
-                                <li><a href="#">Healfit</a>
-                                </li>
-                                <li><a href="#">Palmore International</a>
-                                </li>
+                                  {% for item in client_items %}
+                                        <li><a href="{% url 'home:partner' item.slug %}">{{ item.name }}</a>
+                                        </li>
+                                    {% endfor %}
                             </ul>
                         </li>
                         <li class="sub"><a href="{% url 'blog:blog' %}">Blog</a>
