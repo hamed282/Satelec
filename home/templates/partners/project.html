@@ -8,10 +8,25 @@
                 <!-- Project Info -->
                 <h5 class="u-text-w400">Overview</h5>
                 <p class="u-color-grey">{{ content.overview }}</p>
+                
                 <h5 class="u-text-w400">Products:</h5>
-                <p class="u-color-grey">Cursor Inc.</p>
-                <h5 class="u-text-w400">Feature:</h5>
-                <p class="u-color-grey">22 Feb 2017</p>
+                <ul class="u-color-grey">
+                    {% for product in products %}
+                        <li>{{ product.product }} - {{ product.description }}</li>
+                    {% empty %}
+                        <li>No products available</li>
+                    {% endfor %}
+                </ul>
+                
+                <h5 class="u-text-w400">Features:</h5>
+                <ul class="u-color-grey">
+                    {% for feature in features %}
+                        <li>{{ feature.feature }} - {{ feature.description }}</li>
+                    {% empty %}
+                        <li>No features available</li>
+                    {% endfor %}
+                </ul>
+                
                 <h5 class="u-text-w400">Website</h5>
                 <p><a class="u-color-grey" href="{{ content.website }}" target="_blank">{{ content.website }}</a></p>
                 <!-- Project Info End -->
@@ -19,7 +34,10 @@
             <div class="col-md-8">
                 <!-- Project Video -->
                 <div class="fitvids">
-                    <iframe src="https://www.youtube.com/embed/y6neDdEOVQQ?rel=0&amp;showinfo=0" width="640" height="360" allowfullscreen></iframe>
+                    <video width="100%" height="auto" controls style="max-width: 100%; aspect-ratio: 16/9;">
+                        <source src="{{ content.video.url }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
                 <!-- Project Video End -->
 
@@ -31,36 +49,17 @@
                 <div class="c-gallery-1 -js-popup">
                     <div class="c-gallery-1-inner">
                         <div class="owl-carousel -nav-white -nav-icon -nav-large -nav-middle-between -dots-white -dots-bottom -js-carousel" data-owl-items="1" data-owl-nav="true" data-owl-navtext='["",""]' data-owl-autoplay="true" data-owl-rewind="true">
-                            <div class="c-gallery-1-item">
-                                <a class="c-gallery-1-link" href="assets/img/project-1-1920x1280.jpg" title="Project Name">
-                            <img class="c-gallery-1-image" src="assets/img/project-1-960x640.jpg" alt="Project Name">
-                        </a>
-                            </div>
-                            <div class="c-gallery-1-item">
-                                <a class="c-gallery-1-link" href="assets/img/project-2-1920x1280.jpg" title="Project Name">
-                            <img class="c-gallery-1-image" src="assets/img/project-2-960x640.jpg" alt="Project Name">
-                        </a>
-                            </div>
-                            <div class="c-gallery-1-item">
-                                <a class="c-gallery-1-link" href="assets/img/project-3-1920x1280.jpg" title="Project Name">
-                            <img class="c-gallery-1-image" src="assets/img/project-3-960x640.jpg" alt="Project Name">
-                        </a>
-                            </div>
-                            <div class="c-gallery-1-item">
-                                <a class="c-gallery-1-link" href="assets/img/project-4-1920x1280.jpg" title="Project Name">
-                            <img class="c-gallery-1-image" src="assets/img/project-4-960x640.jpg" alt="Project Name">
-                        </a>
-                            </div>
-                            <div class="c-gallery-1-item">
-                                <a class="c-gallery-1-link" href="assets/img/project-5-1920x1280.jpg" title="Project Name">
-                            <img class="c-gallery-1-image" src="assets/img/project-5-960x640.jpg" alt="Project Name">
-                        </a>
-                            </div>
-                            <div class="c-gallery-1-item">
-                                <a class="c-gallery-1-link" href="assets/img/project-6-1920x1280.jpg" title="Project Name">
-                            <img class="c-gallery-1-image" src="assets/img/project-6-960x640.jpg" alt="Project Name">
-                        </a>
-                            </div>
+                            {% for image in gallery %}
+                                <div class="c-gallery-1-item">
+                                    <a class="c-gallery-1-link" href="{{ image.image.url }}" title="{{ image.alt }}">
+                                        <img class="c-gallery-1-image" src="{{ image.image.url }}" alt="{{ image.alt }}">
+                                    </a>
+                                </div>
+                            {% empty %}
+                                <div class="c-gallery-1-item">
+                                    <p>No gallery images available</p>
+                                </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -74,36 +73,17 @@
                 <div class="c-gallery-1 -js-popup -js-isotope">
                     <div class="c-gallery-1-inner row -gutter-small">
                         <div class="c-gallery-1-size col-md-1"></div>
-                        <div class="c-gallery-1-item col-md-4">
-                            <a class="c-gallery-1-link" href="assets/img/project-1-1920x1280.jpg" title="Project Name">
-                        <img class="c-gallery-1-image" src="assets/img/project-1-480x320.jpg" alt="Project Name">
-                    </a>
-                        </div>
-                        <div class="c-gallery-1-item col-md-4">
-                            <a class="c-gallery-1-link" href="assets/img/project-2-1920x1280.jpg" title="Project Name">
-                        <img class="c-gallery-1-image" src="assets/img/project-2-480x320.jpg" alt="Project Name">
-                    </a>
-                        </div>
-                        <div class="c-gallery-1-item col-md-4">
-                            <a class="c-gallery-1-link" href="assets/img/project-3-1920x1280.jpg" title="Project Name">
-                        <img class="c-gallery-1-image" src="assets/img/project-3-480x320.jpg" alt="Project Name">
-                    </a>
-                        </div>
-                        <div class="c-gallery-1-item col-md-4">
-                            <a class="c-gallery-1-link" href="assets/img/project-4-1920x1280.jpg" title="Project Name">
-                        <img class="c-gallery-1-image" src="assets/img/project-4-480x320.jpg" alt="Project Name">
-                    </a>
-                        </div>
-                        <div class="c-gallery-1-item col-md-4">
-                            <a class="c-gallery-1-link" href="assets/img/project-5-1920x1280.jpg" title="Project Name">
-                        <img class="c-gallery-1-image" src="assets/img/project-5-480x320.jpg" alt="Project Name">
-                    </a>
-                        </div>
-                        <div class="c-gallery-1-item col-md-4">
-                            <a class="c-gallery-1-link" href="assets/img/project-6-1920x1280.jpg" title="Project Name">
-                        <img class="c-gallery-1-image" src="assets/img/project-6-480x320.jpg" alt="Project Name">
-                    </a>
-                        </div>
+                        {% for image in gallery %}
+                            <div class="c-gallery-1-item col-md-4">
+                                <a class="c-gallery-1-link" href="{{ image.image.url }}" title="{{ image.alt }}">
+                                    <img class="c-gallery-1-image" src="{{ image.image.url }}" alt="{{ image.alt }}">
+                                </a>
+                            </div>
+                        {% empty %}
+                            <div class="c-gallery-1-item col-md-4">
+                                <p>No gallery images available</p>
+                            </div>
+                        {% endfor %}
                     </div>
                 </div>
                 <!-- Project Photos End -->

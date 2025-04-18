@@ -6,7 +6,7 @@ from .models import (AddAboutGalleryModel, HomeModel, AddServiceModel,
                      CommitmentModel, ContactUsPageModel, AddCommitmentModel, AddCustomerCentricFocusModel,
                      AddSustainabilityInitiativeModel, WhatWeDoModel, AddWhatWeDoModel, SolarSystemModel,
                      HealthcareProductModel, HeavyMachineryModel, ElectricalEquipmentModel, CommoditiesTradingModel,
-                     PartnerModel)
+                     PartnerModel, AddPartnerProductModel, AddPartnerFeatureModel, AddPartnerGalleryModel)
 from blog.models import BlogModel as Blogs
 from django.conf import settings
 from django.core.mail import send_mail
@@ -218,7 +218,13 @@ class PartnerView(View):
         data = HomeModel.objects.all().first()
         # print(data)
         content = get_object_or_404(PartnerModel, slug=partner_slug)
+        products = AddPartnerProductModel.objects.filter(partner=content)
+        features = AddPartnerFeatureModel.objects.filter(partner=content)
+        gallery = AddPartnerGalleryModel.objects.filter(partner=content)
         context = {'data': data,
                    'content': content,
+                   'products': products,
+                   'features': features,
+                   'gallery': gallery,
                    'seo': "seo"}
         return render(request, 'partners/index.html', context=context)
