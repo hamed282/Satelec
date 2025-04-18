@@ -581,6 +581,8 @@ class HealthcareProductModel(models.Model):
 
 class PartnerModel(models.Model):
     name = models.CharField(max_length=64)
+    logo = models.ImageField(upload_to='img/clients')
+    logo_alt = models.CharField(max_length=64)
     description = models.TextField()
     overview = models.TextField()
     website = models.CharField(max_length=160)
