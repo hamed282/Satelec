@@ -1,7 +1,8 @@
 {% load static %}
-{{ contact.latitude_map }}
-<!-- Google Map -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGTloJPbW0eLmsuvIc5At6UrVMd65YM94"></script>
+
+<!-- OpenStreetMap with Leaflet -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
 <!-- Section Contact -->
 <div class="c-section -bg-blue-light">
@@ -11,7 +12,25 @@
                 <div class="col-12">
                     <div class="page-contact-1-map">
                         <!-- Map -->
-                        <div class="c-map-1 -js-map" data-cursor-map-lat="{{ contact.latitude_map }}" data-cursor-map-lng="{{ contact.longitude_map }}" data-cursor-map-style="style_light" data-cursor-map-zoom="17" data-cursor-map-marker="assets/img/icon-map-marker-dark.png" data-cursor-map-hide-controls="true"></div>
+                        <div id="map" class="c-map-1" style="height: 500px;"></div>
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function() {
+                                // Create map
+                                var map = L.map('map').setView([{{ contact.latitude_map }}, {{ contact.longitude_map }}], 17);
+                                
+                                // Add OpenStreetMap tiles
+                                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                    maxZoom: 19,
+                                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                                }).addTo(map);
+                                
+                                // Add marker
+                                var marker = L.marker([{{ contact.latitude_map }}, {{ contact.longitude_map }}]).addTo(map);
+                                
+                                // Add popup with address
+                                marker.bindPopup("{{ contact.address }}").openPopup();
+                            });
+                        </script>
                         <!-- Map End -->
                     </div>
                 </div>
