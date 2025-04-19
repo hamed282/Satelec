@@ -20,7 +20,7 @@ class HomeView(View):
         about_items = AddAboutGalleryModel.objects.all()
         service_items = AddServiceModel.objects.all()
         testimonial_items = AddTestimonialModel.objects.all()
-        client_items = PartnerModel.objects.all()
+        client_items = PartnerModel.objects.all().order_by('priority')
         seo = HomeModel.objects.all().first()
         context = {'blogs': blogs,
                    'data': data,
@@ -51,7 +51,7 @@ class ContactUsView(View):
         data = HomeModel.objects.all().first()
         contact = ContactUsPageModel.objects.all().first()
         seo = ContactUsPageModel.objects.all().first()
-        client_items = PartnerModel.objects.all()
+        client_items = PartnerModel.objects.all().order_by('priority')
         context = {'data': data,
                    'contact': contact,
                    'client_items': client_items,
@@ -92,7 +92,7 @@ class MissionVisionView(View):
         data = HomeModel.objects.all().first()
         mission_vision = MissionAndVisionModel.objects.all().first()
         seo = MissionAndVisionModel.objects.all().first()
-        client_items = PartnerModel.objects.all()
+        client_items = PartnerModel.objects.all().order_by('priority')
         context = {'data': data,
                    'mission_vision': mission_vision,
                    'client_items': client_items,
@@ -121,7 +121,7 @@ class CostumerCentricFocusView(View):
         customer = CustomerCentricFocusModel.objects.all().first()
         add_customer = AddCustomerCentricFocusModel.objects.all()
         seo = CustomerCentricFocusModel.objects.all().first()
-        client_items = PartnerModel.objects.all()
+        client_items = PartnerModel.objects.all().order_by('priority')
         context = {'data': data,
                    'customer': customer,
                    'add_customer': add_customer,
@@ -136,7 +136,7 @@ class SustainabilityInitiativeView(View):
         sustainability = SustainabilityInitiativeModel.objects.all().first()
         add_sustainability = AddSustainabilityInitiativeModel.objects.all()
         seo = SustainabilityInitiativeModel.objects.all().first()
-        client_items = PartnerModel.objects.all()
+        client_items = PartnerModel.objects.all().order_by('priority')
         context = {'data': data,
                    'sustainability': sustainability,
                    'add_sustainability': add_sustainability,
@@ -151,7 +151,7 @@ class WhatWeDoView(View):
         what_we_do = WhatWeDoModel.objects.all().first()
         add_what_we_do = AddWhatWeDoModel.objects.all()
         seo = WhatWeDoModel.objects.all().first()
-        client_items = PartnerModel.objects.all()
+        client_items = PartnerModel.objects.all().order_by('priority')
         context = {'data': data,
                    'what_we_do': what_we_do,
                    'add_what_we_do': add_what_we_do,
@@ -165,7 +165,7 @@ class ElectricalEquipmentView(View):
         data = HomeModel.objects.all().first()
         content = ElectricalEquipmentModel.objects.all().first()
         seo = ElectricalEquipmentModel.objects.all().first()
-        client_items = PartnerModel.objects.all()
+        client_items = PartnerModel.objects.all().order_by('priority')
         context = {'data': data,
                    'content': content,
                    'client_items': client_items,
@@ -178,7 +178,7 @@ class SolarSystemView(View):
         data = HomeModel.objects.all().first()
         content = SolarSystemModel.objects.all().first()
         seo = SolarSystemModel.objects.all().first()
-        client_items = PartnerModel.objects.all()
+        client_items = PartnerModel.objects.all().order_by('priority')
         context = {'data': data,
                    'content': content,
                    'client_items': client_items,
@@ -191,7 +191,7 @@ class HeavyMachineryView(View):
         data = HomeModel.objects.all().first()
         content = HeavyMachineryModel.objects.all().first()
         seo = HeavyMachineryModel.objects.all().first()
-        client_items = PartnerModel.objects.all()
+        client_items = PartnerModel.objects.all().order_by('priority')
         context = {'data': data,
                    'content': content,
                    'client_items': client_items,
@@ -204,7 +204,7 @@ class CommoditiesTradingView(View):
         data = HomeModel.objects.all().first()
         content = CommoditiesTradingModel.objects.all().first()
         seo = CommoditiesTradingModel.objects.all().first()
-        client_items = PartnerModel.objects.all()
+        client_items = PartnerModel.objects.all().order_by('priority')
         context = {'data': data,
                    'content': content,
                    'client_items': client_items,
@@ -217,7 +217,7 @@ class HealthcareProductView(View):
         data = HomeModel.objects.all().first()
         content = HealthcareProductModel.objects.all().first()
         seo = HealthcareProductModel.objects.all().first()
-        client_items = PartnerModel.objects.all()
+        client_items = PartnerModel.objects.all().order_by('priority')
         context = {'data': data,
                    'content': content,
                    'client_items': client_items,
