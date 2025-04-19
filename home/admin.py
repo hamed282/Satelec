@@ -99,6 +99,7 @@ class HomeAdmin(admin.ModelAdmin):
 
 
 class PartnerAmin(admin.ModelAdmin):
+    list_display = ['name', 'priority']
     inlines = (PartnerProductInline, PartnerFeatureInline, PartnerGalleryInline)
 
 
