@@ -1,6 +1,9 @@
 from django.core.exceptions import ValidationError
 from django.db import models
 from tinymce.models import HTMLField
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
+from django.db.models import Max
 
 
 class HomeModel(models.Model):
@@ -588,6 +591,7 @@ class PartnerModel(models.Model):
     overview = models.TextField()
     website = models.CharField(max_length=160)
     video = models.FileField(upload_to='video/partner')
+    priority = models.IntegerField(blank=True, null=True)
     # products = models.TextField()
     # features = models.TextField()
     slug = models.SlugField()
@@ -599,6 +603,47 @@ class PartnerModel(models.Model):
     meta_title = models.CharField(max_length=60, blank=True, null=True)
     meta_description = models.CharField(max_length=160, blank=True, null=True)
     schema_markup = models.TextField(null=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        if self.priority is None:
+            last_priority = PartnerModel.objects.count()
+            self.priority = last_priority + 1
+
+        super(PartnerModel, self).save(*args, **kwargs)
+
+        # به‌روز رسانی priority برای از بین بردن فاصله‌ها
+        all_partners = PartnerModel.objects.all().order_by('priority')
+        for index, partner in enumerate(all_partners, start=1):
+            if partner.priority != index:
+                partner.priority = index
+                partner.save(update_fields=['priority'])
+
+
+@receiver(pre_save, sender=PartnerModel)
+def increment_numbers_after_existing(sender, instance, **kwargs):
+    if instance.priority is None:
+        instance.priority = 1
+
+    if instance.pk:
+        existing_instance = PartnerModel.objects.get(pk=instance.pk)
+        current_priority = existing_instance.priority or 0
+        update_priority = instance.priority or 0
+
+        if current_priority > update_priority:
+            PartnerModel.objects.filter(priority__lt=current_priority, priority__gte=update_priority).update(
+                priority=models.F('priority') + 1)
+        elif current_priority < update_priority:
+            PartnerModel.objects.filter(priority__gt=current_priority, priority__lte=update_priority).update(
+                priority=models.F('priority') - 1)
+
+    elif not instance.pk:
+        last_number = PartnerModel.objects.aggregate(max_number=Max('priority'))['max_number']
+        if not instance.priority:
+            instance.priority = (last_number or 0) + 1
+        else:
+            if PartnerModel.objects.filter(priority__lte=instance.priority).exists():
+                PartnerModel.objects.filter(priority__gte=instance.priority).update(
+                    priority=models.F('priority') + 1)
 
 
 class AddPartnerProductModel(models.Model):
