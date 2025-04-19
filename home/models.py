@@ -591,7 +591,7 @@ class PartnerModel(models.Model):
     overview = models.TextField()
     website = models.CharField(max_length=160)
     video = models.FileField(upload_to='video/partner')
-    priority = models.IntegerField(blank=True, null=True)
+    priority = models.IntegerField(blank=True, null=True, default=1)
     # products = models.TextField()
     # features = models.TextField()
     slug = models.SlugField()
