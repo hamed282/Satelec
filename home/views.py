@@ -38,7 +38,7 @@ class AboutUsView(View):
         data = HomeModel.objects.all().first()
         about = AboutUsPageModel.objects.all().first()
         seo = AboutUsPageModel.objects.all().first()
-        client_items = PartnerModel.objects.all()
+        client_items = PartnerModel.objects.all().order_by('priority')
         context = {'data': data,
                    'about': about,
                    'client_items': client_items,
@@ -106,7 +106,7 @@ class CommitmentView(View):
         commitment = CommitmentModel.objects.all().first()
         add_commitment = AddCommitmentModel.objects.all()
         seo = CommitmentModel.objects.all().first()
-        client_items = PartnerModel.objects.all()
+        client_items = PartnerModel.objects.all().order_by('priority')
         context = {'data': data,
                    'commitment': commitment,
                    'add_commitment': add_commitment,
@@ -228,12 +228,11 @@ class HealthcareProductView(View):
 class PartnerView(View):
     def get(self, request, partner_slug):
         data = HomeModel.objects.all().first()
-        # print(data)
         content = get_object_or_404(PartnerModel, slug=partner_slug)
         products = AddPartnerProductModel.objects.filter(partner=content)
         features = AddPartnerFeatureModel.objects.filter(partner=content)
         gallery = AddPartnerGalleryModel.objects.filter(partner=content)
-        client_items = PartnerModel.objects.all()
+        client_items = PartnerModel.objects.all().order_by('priority')
         context = {'data': data,
                    'content': content,
                    'products': products,
