@@ -615,8 +615,8 @@ class PartnerModel(models.Model):
         all_partners = PartnerModel.objects.all().order_by('priority')
         for index, partner in enumerate(all_partners, start=1):
             if partner.priority != index:
-                partner.priority = index
-                partner.save(update_fields=['priority'])
+                # به جای فراخوانی save، مستقیماً فیلد priority را به‌روز می‌کنیم
+                PartnerModel.objects.filter(pk=partner.pk).update(priority=index)
 
 
 @receiver(pre_save, sender=PartnerModel)
