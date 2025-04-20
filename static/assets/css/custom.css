@@ -1,1 +1,14 @@
 /* Enter your custom styles */
+
+/* افزایش سایز لوگو در حالت موبایل */
+@media (max-width: 575px) {
+  .c-header-1-logo img {
+    max-height: 40px !important;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 991px) {
+  .c-header-1-logo img {
+    max-height: 45px !important;
+  }
+}
