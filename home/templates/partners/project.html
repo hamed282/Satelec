@@ -51,8 +51,8 @@
                         <div class="owl-carousel -nav-white -nav-icon -nav-large -nav-middle-between -dots-white -dots-bottom -js-carousel" data-owl-items="1" data-owl-nav="true" data-owl-navtext='["",""]' data-owl-autoplay="true" data-owl-rewind="true">
                             {% for image in gallery %}
                                 <div class="c-gallery-1-item">
-                                    <a class="c-gallery-1-link" href="{{ image.image.url }}" title="{{ image.alt }}">
-                                        <img class="c-gallery-1-image" src="{{ image.image.url }}" alt="{{ image.alt }}">
+                                    <a class="c-gallery-1-link" href="{{ image.image.url }}" title="{{ image.image_alt }}">
+                                        <img class="c-gallery-1-image" src="{{ image.image.url }}" alt="{{ image.image_alt }}">
                                     </a>
                                 </div>
                             {% empty %}
@@ -75,8 +75,8 @@
                         <div class="c-gallery-1-size col-md-1"></div>
                         {% for image in gallery %}
                             <div class="c-gallery-1-item col-md-4">
-                                <a class="c-gallery-1-link" href="{{ image.image.url }}" title="{{ image.alt }}">
-                                    <img class="c-gallery-1-image" src="{{ image.image.url }}" alt="{{ image.alt }}">
+                                <a class="c-gallery-1-link" href="{{ image.image.url }}" title="{{ image.image_alt }}">
+                                    <img class="c-gallery-1-image" src="{{ image.image.url }}" alt="{{ image.image_alt }}">
                                 </a>
                             </div>
                         {% empty %}

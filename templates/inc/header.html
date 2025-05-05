@@ -8,7 +8,7 @@
             <div class="c-container">
                 <div class="c-header-1-middle">
                     <div class="c-header-1-logo">
-                        <a href="{% url 'home:home' %}"><img src="{% static 'assets/img/logo-dark.png' %}" alt="Cursor"></a>
+                        <a href="{% url 'home:home' %}"><img src="{{ data.logo_header.url }}" alt="{{ data.logo_header_alt }}"></a>
                     </div>
                     <nav class="c-header-1-nav">
                         <ul>

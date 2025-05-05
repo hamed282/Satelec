@@ -26,7 +26,7 @@
                             <div class="c-blog-1-item-inner">
                                 <div class="c-blog-1-media">
                                     <div class="c-blog-1-media-photo">
-                                        <a class="c-blog-1-media-link" href="{% url 'blog:blog_item' blog.slug %}"><img class="c-blog-1-media-image" src="{{ blog.cover.url }}" alt="Post Title"></a>
+                                        <a class="c-blog-1-media-link" href="{% url 'blog:blog_item' blog.slug %}"><img class="c-blog-1-media-image" src="{{ blog.cover.url }}" alt="{{ blog.alt_cover }}"></a>
                                     </div>
                                 </div>
                                 <div class="c-blog-1-info">

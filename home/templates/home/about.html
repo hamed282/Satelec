@@ -19,8 +19,9 @@
 
                         {% for img in about_items %}
                         <div class="c-gallery-1-item col-md-4">
-                            <a class="c-gallery-1-link" href="{{ img.image.url }}" title="{{ img.alt }}">
-                        <img class="c-gallery-1-image" src="{{ img.image.url }}" alt="{{ img.alt }}"></a>
+                            <a class="c-gallery-1-link" href="{{ img.image.url }}" title="{{ img.image_alt }}">
+                                <img class="c-gallery-1-image" src="{{ img.image.url }}" alt="{{ img.image_alt }}">
+                            </a>
                         </div>
                         {% endfor %}
                     </div>
