@@ -1,5 +1,6 @@
 from tinymce.models import HTMLField
 from django.db import models
+from home.models import TimeStampedModel
 
 
 class BlogCategoryModel(models.Model):
@@ -22,7 +23,7 @@ class BlogCategoryModel(models.Model):
         verbose_name_plural = 'Blog Categories'
 
 
-class BlogModel(models.Model):
+class BlogModel(TimeStampedModel):
     category = models.ForeignKey(BlogCategoryModel, on_delete=models.CASCADE)
     title = models.CharField(max_length=128)
     description = models.TextField()
@@ -31,8 +32,6 @@ class BlogModel(models.Model):
     author = models.CharField(max_length=32)
     body = HTMLField()
     slug = models.SlugField(unique=True)
-    created = models.DateField(auto_now_add=True)
-    updated = models.DateField(auto_now=True)
 
     # SEO Section
     follow = models.BooleanField(default=False)

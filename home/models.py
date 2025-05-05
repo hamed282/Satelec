@@ -4,9 +4,18 @@ from tinymce.models import HTMLField
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
 from django.db.models import Max
+from django.utils import timezone
 
 
-class HomeModel(models.Model):
+class TimeStampedModel(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        abstract = True
+
+
+class HomeModel(TimeStampedModel):
     # Logo Section
     logo_header = models.ImageField(upload_to='img/logo')
     logo_header_alt = models.CharField(max_length=255, blank=True, null=True)
@@ -122,7 +131,7 @@ class AddClientModel(models.Model):
         return 'Client'
 
 
-class ContactUsPageModel(models.Model):
+class ContactUsPageModel(TimeStampedModel):
     title = models.CharField(max_length=64)
     subtitle = models.CharField(max_length=64)
     description = models.TextField()
@@ -173,7 +182,7 @@ class ContactUsModel(models.Model):
         return self.email
 
 
-class AboutUsPageModel(models.Model):
+class AboutUsPageModel(TimeStampedModel):
     banner = models.ImageField(upload_to='img/aboutus')
     banner_alt = models.CharField(max_length=255, blank=True, null=True)
     title = models.CharField(max_length=128)
@@ -212,7 +221,7 @@ class AboutUsPageModel(models.Model):
         return 'AboutUs'
 
 
-class MissionAndVisionModel(models.Model):
+class MissionAndVisionModel(TimeStampedModel):
     banner = models.ImageField(upload_to='img/mission-vision')
     banner_alt = models.CharField(max_length=255, blank=True, null=True)
     title = models.CharField(max_length=128)
@@ -251,7 +260,7 @@ class MissionAndVisionModel(models.Model):
         return 'Mission And Vision'
 
 
-class CommitmentModel(models.Model):
+class CommitmentModel(TimeStampedModel):
     banner = models.ImageField(upload_to='img/commitment')
     banner_alt = models.CharField(max_length=255, blank=True, null=True)
     title = models.CharField(max_length=128)
@@ -296,7 +305,7 @@ class AddCommitmentModel(models.Model):
         return f'{self.title}'
 
 
-class CustomerCentricFocusModel(models.Model):
+class CustomerCentricFocusModel(TimeStampedModel):
     banner = models.ImageField(upload_to='img/customer_centric')
     banner_alt = models.CharField(max_length=255, blank=True, null=True)
     title = models.CharField(max_length=128)
@@ -341,7 +350,7 @@ class AddCustomerCentricFocusModel(models.Model):
         return f'{self.title}'
 
 
-class SustainabilityInitiativeModel(models.Model):
+class SustainabilityInitiativeModel(TimeStampedModel):
     banner = models.ImageField(upload_to='img/sustainability')
     banner_alt = models.CharField(max_length=255, blank=True, null=True)
     title = models.CharField(max_length=128)
@@ -386,7 +395,7 @@ class AddSustainabilityInitiativeModel(models.Model):
         return f'{self.title}'
 
 
-class WhatWeDoModel(models.Model):
+class WhatWeDoModel(TimeStampedModel):
     banner = models.ImageField(upload_to='img/what-we-do')
     banner_alt = models.CharField(max_length=255, blank=True, null=True)
     title = models.CharField(max_length=128)
@@ -433,7 +442,7 @@ class AddWhatWeDoModel(models.Model):
         return f'{self.title}'
 
 
-class ElectricalEquipmentModel(models.Model):
+class ElectricalEquipmentModel(TimeStampedModel):
     title = models.CharField(max_length=64)
     description = models.TextField()
     image = models.ImageField(upload_to='img/what-we-do')
@@ -463,7 +472,7 @@ class ElectricalEquipmentModel(models.Model):
         return 'Electrical Equipment'
 
 
-class SolarSystemModel(models.Model):
+class SolarSystemModel(TimeStampedModel):
     title = models.CharField(max_length=64)
     description = models.TextField()
     image = models.ImageField(upload_to='img/what-we-do')
@@ -493,7 +502,7 @@ class SolarSystemModel(models.Model):
         return 'Solar System'
 
 
-class HeavyMachineryModel(models.Model):
+class HeavyMachineryModel(TimeStampedModel):
     title = models.CharField(max_length=64)
     description = models.TextField()
     image = models.ImageField(upload_to='img/what-we-do')
@@ -523,7 +532,7 @@ class HeavyMachineryModel(models.Model):
         return 'Heavy Machinery'
 
 
-class CommoditiesTradingModel(models.Model):
+class CommoditiesTradingModel(TimeStampedModel):
     title = models.CharField(max_length=64)
     description = models.TextField()
     image = models.ImageField(upload_to='img/what-we-do')
@@ -553,7 +562,7 @@ class CommoditiesTradingModel(models.Model):
         return 'Commodities Trading'
 
 
-class HealthcareProductModel(models.Model):
+class HealthcareProductModel(TimeStampedModel):
     title = models.CharField(max_length=64)
     description = models.TextField()
     image = models.ImageField(upload_to='img/what-we-do')
@@ -583,7 +592,7 @@ class HealthcareProductModel(models.Model):
         return 'Healthcare Product'
 
 
-class PartnerModel(models.Model):
+class PartnerModel(TimeStampedModel):
     name = models.CharField(max_length=64)
     title = models.CharField(max_length=64)
     logo = models.ImageField(upload_to='img/clients')

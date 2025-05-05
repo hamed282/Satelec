@@ -264,7 +264,7 @@ class SitemapView(View):
         contact = ContactUsPageModel.objects.first()
         
         # Get all blogs and partners
-        # blogs = BlogModel.objects.all()
+        blogs = BlogModel.objects.all()
         partners = PartnerModel.objects.all()
         
         # Get last modification dates
