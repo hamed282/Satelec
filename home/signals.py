@@ -19,7 +19,7 @@ SITEMAP_MODELS = [
     ElectricalEquipmentModel, SolarSystemModel,
     HeavyMachineryModel, CommoditiesTradingModel,
     HealthcareProductModel, PartnerModel, ContactUsPageModel,
-    # BlogModel
+    BlogModel
 ]
 
 @receiver(post_save)
