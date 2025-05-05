@@ -9,9 +9,9 @@ from django.db.models import Max
 class HomeModel(models.Model):
     # Logo Section
     logo_header = models.ImageField(upload_to='img/logo')
-    logo_header_alt = models.CharField(max_length=200)
+    logo_header_alt = models.CharField(max_length=255, blank=True, null=True)
     logo_footer = models.ImageField(upload_to='img/logo')
-    logo_footer_alt = models.CharField(max_length=200)
+    logo_footer_alt = models.CharField(max_length=255, blank=True, null=True)
 
     # About Us Section
     title_about = models.CharField(max_length=256)
@@ -27,7 +27,7 @@ class HomeModel(models.Model):
     title_testimonial = models.CharField(max_length=64)
     header_testimonial = models.CharField(max_length=512)
     image_testimonial = models.ImageField(upload_to='img/testimonial')
-    testimonial_alt = models.CharField(max_length=200)
+    image_testimonial_alt = models.CharField(max_length=255, blank=True, null=True)
 
     # Client Section
     title_client = models.CharField(max_length=128)
@@ -64,6 +64,7 @@ class HomeModel(models.Model):
 
 class AddAboutGalleryModel(models.Model):
     image = models.ImageField(upload_to='img/about_gallery')
+    image_alt = models.CharField(max_length=255, blank=True, null=True)
     alt = models.CharField(max_length=250)
     about = models.ForeignKey(HomeModel, on_delete=models.CASCADE)
 
@@ -109,7 +110,7 @@ class AddClientModel(models.Model):
     client = models.ForeignKey(HomeModel, on_delete=models.CASCADE)
 
     logo = models.ImageField(upload_to='img/clients')
-    logo_alt = models.CharField(max_length=64)
+    logo_alt = models.CharField(max_length=255, blank=True, null=True)
     link = models.CharField(max_length=1024)
     slug = models.SlugField()
 
@@ -126,7 +127,7 @@ class ContactUsPageModel(models.Model):
     subtitle = models.CharField(max_length=64)
     description = models.TextField()
     image = models.ImageField(upload_to='img/contactus')
-    image_alt = models.CharField(max_length=200)
+    image_alt = models.CharField(max_length=255, blank=True, null=True)
     longitude_map = models.CharField(max_length=16)
     latitude_map = models.CharField(max_length=16)
     address = models.CharField(max_length=64)
@@ -174,7 +175,7 @@ class ContactUsModel(models.Model):
 
 class AboutUsPageModel(models.Model):
     banner = models.ImageField(upload_to='img/aboutus')
-    banner_alt = models.CharField(max_length=200)
+    banner_alt = models.CharField(max_length=255, blank=True, null=True)
     title = models.CharField(max_length=128)
     subtitle = models.CharField(max_length=128)
     description = HTMLField()
@@ -213,7 +214,7 @@ class AboutUsPageModel(models.Model):
 
 class MissionAndVisionModel(models.Model):
     banner = models.ImageField(upload_to='img/mission-vision')
-    banner_alt = models.CharField(max_length=200)
+    banner_alt = models.CharField(max_length=255, blank=True, null=True)
     title = models.CharField(max_length=128)
     subtitle = models.CharField(max_length=128)
     description = HTMLField()
@@ -252,7 +253,7 @@ class MissionAndVisionModel(models.Model):
 
 class CommitmentModel(models.Model):
     banner = models.ImageField(upload_to='img/commitment')
-    banner_alt = models.CharField(max_length=200)
+    banner_alt = models.CharField(max_length=255, blank=True, null=True)
     title = models.CharField(max_length=128)
     subtitle = models.CharField(max_length=128)
     description = HTMLField()
@@ -297,7 +298,7 @@ class AddCommitmentModel(models.Model):
 
 class CustomerCentricFocusModel(models.Model):
     banner = models.ImageField(upload_to='img/customer_centric')
-    banner_alt = models.CharField(max_length=200)
+    banner_alt = models.CharField(max_length=255, blank=True, null=True)
     title = models.CharField(max_length=128)
     subtitle = models.CharField(max_length=128)
     description = HTMLField()
@@ -342,7 +343,7 @@ class AddCustomerCentricFocusModel(models.Model):
 
 class SustainabilityInitiativeModel(models.Model):
     banner = models.ImageField(upload_to='img/sustainability')
-    banner_alt = models.CharField(max_length=200)
+    banner_alt = models.CharField(max_length=255, blank=True, null=True)
     title = models.CharField(max_length=128)
     subtitle = models.CharField(max_length=128)
     description = HTMLField()
@@ -387,7 +388,7 @@ class AddSustainabilityInitiativeModel(models.Model):
 
 class WhatWeDoModel(models.Model):
     banner = models.ImageField(upload_to='img/what-we-do')
-    banner_alt = models.CharField(max_length=200)
+    banner_alt = models.CharField(max_length=255, blank=True, null=True)
     title = models.CharField(max_length=128)
     subtitle = models.CharField(max_length=128)
     description = HTMLField()
@@ -436,7 +437,7 @@ class ElectricalEquipmentModel(models.Model):
     title = models.CharField(max_length=64)
     description = models.TextField()
     image = models.ImageField(upload_to='img/what-we-do')
-    image_alt = models.CharField(max_length=64)
+    image_alt = models.CharField(max_length=255, blank=True, null=True)
     body = HTMLField()
 
     # SEO Section
@@ -466,7 +467,7 @@ class SolarSystemModel(models.Model):
     title = models.CharField(max_length=64)
     description = models.TextField()
     image = models.ImageField(upload_to='img/what-we-do')
-    image_alt = models.CharField(max_length=64)
+    image_alt = models.CharField(max_length=255, blank=True, null=True)
     body = HTMLField()
 
     # SEO Section
@@ -496,7 +497,7 @@ class HeavyMachineryModel(models.Model):
     title = models.CharField(max_length=64)
     description = models.TextField()
     image = models.ImageField(upload_to='img/what-we-do')
-    image_alt = models.CharField(max_length=64)
+    image_alt = models.CharField(max_length=255, blank=True, null=True)
     body = HTMLField()
 
     # SEO Section
@@ -526,7 +527,7 @@ class CommoditiesTradingModel(models.Model):
     title = models.CharField(max_length=64)
     description = models.TextField()
     image = models.ImageField(upload_to='img/what-we-do')
-    image_alt = models.CharField(max_length=64)
+    image_alt = models.CharField(max_length=255, blank=True, null=True)
     body = HTMLField()
 
     # SEO Section
@@ -556,7 +557,7 @@ class HealthcareProductModel(models.Model):
     title = models.CharField(max_length=64)
     description = models.TextField()
     image = models.ImageField(upload_to='img/what-we-do')
-    image_alt = models.CharField(max_length=64)
+    image_alt = models.CharField(max_length=255, blank=True, null=True)
     body = HTMLField()
 
     # SEO Section
@@ -586,7 +587,7 @@ class PartnerModel(models.Model):
     name = models.CharField(max_length=64)
     title = models.CharField(max_length=64)
     logo = models.ImageField(upload_to='img/clients')
-    logo_alt = models.CharField(max_length=64)
+    logo_alt = models.CharField(max_length=255, blank=True, null=True)
     description = models.TextField()
     overview = models.TextField()
     website = models.CharField(max_length=160)
@@ -674,6 +675,7 @@ class AddPartnerFeatureModel(models.Model):
 
 class AddPartnerGalleryModel(models.Model):
     image = models.ImageField(upload_to='img/partner_gallery')
+    image_alt = models.CharField(max_length=255, blank=True, null=True)
     alt = models.CharField(max_length=250)
     partner = models.ForeignKey(PartnerModel, on_delete=models.CASCADE)
 
