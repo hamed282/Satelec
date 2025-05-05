@@ -239,5 +239,5 @@ class PartnerView(View):
                    'features': features,
                    'gallery': gallery,
                    'client_items': client_items,
-                   'seo': "seo"}
+                   'seo': content}
         return render(request, 'partners/index.html', context=context)
