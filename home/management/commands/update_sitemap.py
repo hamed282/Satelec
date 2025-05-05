@@ -50,9 +50,9 @@ class Command(BaseCommand):
             'commodities_lastmod': commodities.updated_at.strftime('%Y-%m-%d') if commodities else timezone.now().strftime('%Y-%m-%d'),
             'healthcare_lastmod': healthcare.updated_at.strftime('%Y-%m-%d') if healthcare else timezone.now().strftime('%Y-%m-%d'),
             'contact_lastmod': contact.updated_at.strftime('%Y-%m-%d') if contact else timezone.now().strftime('%Y-%m-%d'),
-            'blog_lastmod': blogs.first().updated_at.strftime('%Y-%m-%d') if blogs.exists() else timezone.now().strftime('%Y-%m-%d'),
+            # 'blog_lastmod': blogs.first().updated_at.strftime('%Y-%m-%d') if blogs.exists() else timezone.now().strftime('%Y-%m-%d'),
             'partners_lastmod': partners.first().updated_at.strftime('%Y-%m-%d') if partners.exists() else timezone.now().strftime('%Y-%m-%d'),
-            'blogs': blogs,
+            # 'blogs': blogs,
             'partners': partners,
         }
         
