@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Home Page -->
+    <url>
+        <loc>https://satelec.ae/</loc>
+        <lastmod>{{ home_lastmod }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- About Us Page -->
+    <url>
+        <loc>https://satelec.ae/about-us/</loc>
+        <lastmod>{{ about_lastmod }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Mission & Vision Page -->
+    <url>
+        <loc>https://satelec.ae/mission-vision/</loc>
+        <lastmod>{{ mission_lastmod }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Commitment Page -->
+    <url>
+        <loc>https://satelec.ae/commitment/</loc>
+        <lastmod>{{ commitment_lastmod }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Customer Centric Focus Page -->
+    <url>
+        <loc>https://satelec.ae/customer-centric-focus/</loc>
+        <lastmod>{{ customer_lastmod }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Sustainability Initiative Page -->
+    <url>
+        <loc>https://satelec.ae/sustainability-initiative/</loc>
+        <lastmod>{{ sustainability_lastmod }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- What We Do Page -->
+    <url>
+        <loc>https://satelec.ae/what-we-do/</loc>
+        <lastmod>{{ whatwedo_lastmod }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Electrical Equipments Page -->
+    <url>
+        <loc>https://satelec.ae/electrical-equipments/</loc>
+        <lastmod>{{ electrical_lastmod }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Solar Systems Page -->
+    <url>
+        <loc>https://satelec.ae/solar-systems/</loc>
+        <lastmod>{{ solar_lastmod }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Heavy Machineries Page -->
+    <url>
+        <loc>https://satelec.ae/heavy-machineries/</loc>
+        <lastmod>{{ heavy_lastmod }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Commodities Trading Page -->
+    <url>
+        <loc>https://satelec.ae/commodities-trading/</loc>
+        <lastmod>{{ commodities_lastmod }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Healthcare Products Page -->
+    <url>
+        <loc>https://satelec.ae/healthcare-products/</loc>
+        <lastmod>{{ healthcare_lastmod }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Contact Us Page -->
+    <url>
+        <loc>https://satelec.ae/contact-us/</loc>
+        <lastmod>{{ contact_lastmod }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Blog Pages -->
+    <url>
+        <loc>https://satelec.ae/blog/</loc>
+        <lastmod>{{ blog_lastmod }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    {% for blog in blogs %}
+    <url>
+        <loc>https://satelec.ae/blog/{{ blog.slug }}/</loc>
+        <lastmod>{{ blog.updated_at|date:"Y-m-d" }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    {% endfor %}
+
+    <!-- Partner Pages -->
+    <url>
+        <loc>https://satelec.ae/partners/</loc>
+        <lastmod>{{ partners_lastmod }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    {% for partner in partners %}
+    <url>
+        <loc>https://satelec.ae/partner/{{ partner.slug }}/</loc>
+        <lastmod>{{ partner.updated_at|date:"Y-m-d" }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    {% endfor %}
+</urlset> 

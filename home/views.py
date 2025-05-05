@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import View
+from django.http import HttpResponse
+from django.template.loader import render_to_string
 from .models import (AddAboutGalleryModel, HomeModel, AddServiceModel,
                      AddTestimonialModel, AddClientModel, ContactUsModel,
                      AboutUsPageModel, MissionAndVisionModel, SustainabilityInitiativeModel, CustomerCentricFocusModel,
@@ -10,6 +12,7 @@ from .models import (AddAboutGalleryModel, HomeModel, AddServiceModel,
 from blog.models import BlogModel as Blogs
 from django.conf import settings
 from django.core.mail import send_mail
+from django.utils import timezone
 
 
 class HomeView(View):
@@ -241,3 +244,49 @@ class PartnerView(View):
                    'client_items': client_items,
                    'seo': content}
         return render(request, 'partners/index.html', context=context)
+
+
+class SitemapView(View):
+    def get(self, request):
+        # Get all models
+        home = HomeModel.objects.first()
+        about = AboutUsPageModel.objects.first()
+        mission = MissionAndVisionModel.objects.first()
+        commitment = CommitmentModel.objects.first()
+        customer = CustomerCentricFocusModel.objects.first()
+        sustainability = SustainabilityInitiativeModel.objects.first()
+        whatwedo = WhatWeDoModel.objects.first()
+        electrical = ElectricalEquipmentModel.objects.first()
+        solar = SolarSystemModel.objects.first()
+        heavy = HeavyMachineryModel.objects.first()
+        commodities = CommoditiesTradingModel.objects.first()
+        healthcare = HealthcareProductModel.objects.first()
+        contact = ContactUsPageModel.objects.first()
+        
+        # Get all blogs and partners
+        blogs = BlogModel.objects.all()
+        partners = PartnerModel.objects.all()
+        
+        # Get last modification dates
+        context = {
+            'home_lastmod': home.updated_at.strftime('%Y-%m-%d') if home else timezone.now().strftime('%Y-%m-%d'),
+            'about_lastmod': about.updated_at.strftime('%Y-%m-%d') if about else timezone.now().strftime('%Y-%m-%d'),
+            'mission_lastmod': mission.updated_at.strftime('%Y-%m-%d') if mission else timezone.now().strftime('%Y-%m-%d'),
+            'commitment_lastmod': commitment.updated_at.strftime('%Y-%m-%d') if commitment else timezone.now().strftime('%Y-%m-%d'),
+            'customer_lastmod': customer.updated_at.strftime('%Y-%m-%d') if customer else timezone.now().strftime('%Y-%m-%d'),
+            'sustainability_lastmod': sustainability.updated_at.strftime('%Y-%m-%d') if sustainability else timezone.now().strftime('%Y-%m-%d'),
+            'whatwedo_lastmod': whatwedo.updated_at.strftime('%Y-%m-%d') if whatwedo else timezone.now().strftime('%Y-%m-%d'),
+            'electrical_lastmod': electrical.updated_at.strftime('%Y-%m-%d') if electrical else timezone.now().strftime('%Y-%m-%d'),
+            'solar_lastmod': solar.updated_at.strftime('%Y-%m-%d') if solar else timezone.now().strftime('%Y-%m-%d'),
+            'heavy_lastmod': heavy.updated_at.strftime('%Y-%m-%d') if heavy else timezone.now().strftime('%Y-%m-%d'),
+            'commodities_lastmod': commodities.updated_at.strftime('%Y-%m-%d') if commodities else timezone.now().strftime('%Y-%m-%d'),
+            'healthcare_lastmod': healthcare.updated_at.strftime('%Y-%m-%d') if healthcare else timezone.now().strftime('%Y-%m-%d'),
+            'contact_lastmod': contact.updated_at.strftime('%Y-%m-%d') if contact else timezone.now().strftime('%Y-%m-%d'),
+            'blog_lastmod': blogs.first().updated_at.strftime('%Y-%m-%d') if blogs.exists() else timezone.now().strftime('%Y-%m-%d'),
+            'partners_lastmod': partners.first().updated_at.strftime('%Y-%m-%d') if partners.exists() else timezone.now().strftime('%Y-%m-%d'),
+            'blogs': blogs,
+            'partners': partners,
+        }
+        
+        sitemap = render_to_string('sitemap.xml', context)
+        return HttpResponse(sitemap, content_type='application/xml')
