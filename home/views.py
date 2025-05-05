@@ -288,5 +288,10 @@ class SitemapView(View):
             'partners': partners,
         }
         
-        sitemap = render_to_string('sitemap.xml', context)
-        return HttpResponse(sitemap, content_type='application/xml')
+        # Render the sitemap template
+        sitemap_content = render_to_string('sitemap.xml', context)
+        
+        # Return the response with XML content type
+        response = HttpResponse(sitemap_content, content_type='application/xml')
+        response['Content-Disposition'] = 'attachment; filename="sitemap.xml"'
+        return response
